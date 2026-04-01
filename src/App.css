@@ -1,0 +1,11 @@
+::selection {
+  background: transparent;
+  color: #D4A574;
+  text-shadow: 0 0 6px rgba(124,27,50,0.5);
+}
+
+::-moz-selection {
+  background: transparent;
+  color: #D4A574;
+  text-shadow: 0 0 6px rgba(124,27,50,0.5);
+}

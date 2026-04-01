@@ -1,0 +1,12 @@
+AddType application/xml .xml
+
+RewriteEngine On
+
+# Redirect www → non-www (optional but good)
+RewriteCond %{HTTP_HOST} ^www\.dancewithsnn\.com [NC]
+RewriteRule ^(.*)$ https://dancewithsnn.com/$1 [L,R=301]
+
+# React SPA routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
