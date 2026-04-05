@@ -356,11 +356,7 @@ As part of registration, parents/guardians are required to complete a Liability 
         heading: "Acknowledgment",
         body: `Use of the SreeNarthana Natyalaya website is subject to our separate Terms of Service, while enrollment and participation in classes are governed by the terms and conditions explained in this handbook.
 
-By signing this handbook, the parent and student agree to comply with all Natyalaya policies, terms and conditions, and safety guidelines.
-
-Student Name: _____________________
-Parent/Guardian Name: _____________________
-Date: _____________________`,
+By signing this handbook, the parent and student agree to comply with all Natyalaya policies, terms and conditions, and safety guidelines.`,
       },
     ],
   },
@@ -385,7 +381,7 @@ Date: _____________________`,
         You agree that all agreements, notices, disclosures, and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.`,
       },
       {
-        heading: "4. UNLAWFUL OR PROHIBITED USE",
+        heading: "4. Unlwaful or Prohibited Use",
         body: `As a condition of your use of this website, you warrant or agree to use this website only for lawful purposes. You may not use the website in any way that violates applicable laws or regulations (or) attempt to gain unauthorized access to any part of the website or Interfere with the proper functioning or security of the website.`,
       },
       {
@@ -397,76 +393,76 @@ Date: _____________________`,
         body: `SreeNarthana Natyalaya is committed to protecting the privacy of children who visit our website and ensuring compliance with the Children’s Online Privacy Protection Act (COPPA) regulations. Your use of this website is governed by our Privacy Policy which explains how we collect, use, and handle children’s personal information.`,
       },
       {
-        heading: "7. ACCOUNT RESPONSIBILITY",
+        heading: "7. Account Responsibility",
         body: `To access certain services on our Website, you may be required to create an account for a student. You agree to provide accurate, current, and complete information and to keep such information updated.\n
 You are responsible for maintaining the confidentiality of your account credentials and for restricting access to your device. You agree to accept responsibility for all activities that occur under your account.\n
 Accounts may not be assigned or transferred to any other person or entity. You acknowledge that SreeNarthana Natyalaya is not responsible for unauthorized access to your account resulting from loss, theft, or misuse of your login information.Parents or legal guardians must create and manage accounts for users under the age of 18.\n
 SreeNarthana Natyalaya reserves the right, at its sole discretion, to refuse or cancel services or terminate accounts that contain false, inaccurate, or misleading information.`,
       },
       {
-        heading: "8. NON-DISCRIMINATION",
+        heading: "8. Non-Discrimination",
         body: `SreeNarthana Natyalaya is committed to providing equal access to its services and opportunities to all individuals, without discrimination based on any characteristics protected under applicable laws. We do not discriminate against individuals with disabilities and are committed to providing them equal access to our website and services, in accordance with the Americans with Disabilities Act (ADA). Our services are offered on an equal and non-discriminatory basis to all students and families.`,
       },
       {
-        heading: "9. THIRD PARTY SERVICES AND LINKS",
+        heading: "9. Third Party Services & Links",
         body: `This website may include links to third-party websites or services (such as payment processors, external event registration platforms, or video platforms). These links are provided for your convenience only, and their inclusion does not imply endorsement by SreeNarthana Natyalaya or any association with their operators.\n
 SreeNarthana Natyalaya is not responsible for the content, policies, or practices of any third- party websites, nor for any transactions or interactions you may have with such services.`,
       },
       {
-        heading: "10. INTELLECTUAL PROPERTY",
+        heading: "10. Intellectual Property",
         body: `All content on this website, including but not limited to choreography, learning materials, videos and recordings, logos, text, and images is the property of SreeNarthana Natyalaya unless otherwise stated and is protected by applicable copyright and intellectual property laws. You may not copy, reproduce, distribute, modify, record, share, or use any content for commercial purposes without prior written permission from SreeNarthana Natyalaya.`,
       },
       {
-        heading: "11. USER GENERATED CONTENT",
+        heading: "11. User Generated Content",
         body: `By submitting or uploading content (such as comments, photos, or videos) to the website, you grant SreeNarthana Natyalaya a non-exclusive, royalty-free license to use, display, and share such content for promotional or educational purposes. You represent and warrant that your content does not violate any laws or infringe on the rights of third parties. SreeNarthana Natyalaya reserves the right to remove any content at its sole discretion.`,
       },
       {
-        heading: "12. INDEMNIFICATION",
+        heading: "12. Indemnification",
         body: `You agree to indemnify, defend, and hold harmless SreeNarthana Natyalaya, its instructors, staff, and affiliates from any claims, liabilities, damages, losses, or expenses (including attorney’s fees) arising from your use of the website, your violation of these Terms, or your violation of any applicable law or rights of a third party.`,
       },
       {
-        heading: "13. INTERNATIONAL USERS",
+        heading: "13. International Users",
         body: `The website and services are controlled, operated, and administered by SreeNarthana Natyalaya from our office in the United States. If you access the website or services from outside the United States, you are responsible for complying with all applicable local laws. You agree not to use any content or materials from the website in any country or in any manner prohibited by local laws, regulations, or restrictions`,
       },
       {
-        heading: "14. DISCLAIMER OF WARRANTIES",
+        heading: "14. Disclaimers of Warranties",
         body: `The SreeNarthana Natyalaya website and all services provided through it, including online classes, are offered “as is” and “as available”, without any warranties of any kind, either express or implied. SreeNarthana Natyalaya does not guarantee uninterrupted access to the website or online services and is not responsible for technical errors, service interruptions, or issues arising from third-party platforms or tools used to deliver classes, payments, or other services. You acknowledge that your use of the website and participation in services is at your own risk.`,
       },
       {
-        heading: "15. LIMITATION OF LIABILITY",
+        heading: "15. Limitation Of Liability",
         body: `To the fullest extent permitted by law, SreeNarthana Natyalaya, its instructors, staff, and affiliates shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use or inability to use the website or its services, any errors, interruptions, or technical issues with online platforms or third-party services or from unauthorized access to your account or personal information. Nothing in this section limits or excludes liability that cannot legally be limited or excluded under applicable law.`,
       },
       {
-        heading: "16. TERMINATION OF ACCESS",
+        heading: "16. Termination Of Access",
         body: `SreeNarthana Natyalaya reserves the right, at its sole discretion, to suspend, restrict, or terminate your access to the website, its services, or any account at any time and for any reason, including but not limited to violations of these Terms of Service. This includes the removal or deactivation of user accounts, deletion or modification of submitted content, and denial of access to any features of the website. Such actions may be taken without prior notice, and SreeNarthana Natyalaya shall not be liable to any user or third party for any suspension, termination, or removal of access, accounts, or content. Users acknowledge and agree that all decisions regarding termination or restriction of access are final and at the sole discretion of SreeNarthana Natyalaya.`,
       },
       {
-        heading: "17. GOVERNING LAW",
+        heading: "17. Governing Law",
         body: `These Terms shall be governed by and construed in accordance with the laws of the State of Texas, United States.`,
       },
       {
-        heading: "18. DISPUTE RESOLUTION",
+        heading: "18. Dispute Resolution",
         body: `Any disputes arising out of or relating to these Terms shall first be attempted to be resolved through good-faith communication. If a resolution cannot be reached, the dispute shall be subject to the laws and courts of the State of Texas.`,
       },
       {
-        heading: "19. PARENTAL RESPONSIBILITY",
+        heading: "19. Parental Responsibility",
         body: `Parents or legal guardians are responsible for supervising minors’ use of the website and ensuring compliance with these Terms.`,
       },
       {
-        heading: "20. CHANGE OF TERMS",
+        heading: "20. Change of Terms",
         body: `SreeNarthana Natyalaya reserves the right, at its sole discretion, to modify, update, or revise these Terms of Service at any time. The most current version of the Terms will supersede all prior versions and will be effective immediately upon posting on the Website, with an updated effective date clearly indicated. We encourage all users, including parents and guardians, to periodically
 review the Terms to remain informed of any updates or changes. Your continued use of the Website, participation in classes, or engagement with our services after such changes have been posted constitutes your acceptance of the revised Terms.`,
       },
       {
-        heading: "21. CONTACT INFORMATION",
+        heading: "21. Contact Information",
         body: `If you have any questions about these Terms, please contact us at:\n
 SREENARTHANA NATYALAYA, Spring Texas USA\n
-Email: narthanadanceschool@gmail.com\n
+Email: info@dancewithsnn.com\n
 Phone: +1(630)-750-5272\n
 Effective Date : March 30th 2026`,
       },
       {
-        heading: "22. INTERPRETATION AND EFINITIONS",
+        heading: "22. Interpretation & Effinations",
         body: `Website : Refers to the SreeNarthana Natyalaya website, including all pages, subdomains, and portals used toprovide information or services.\n
 User: Any person who accesses, registers, or uses the website, including parents/guardians acting on behalf of minors.\n
 Parent/Guardian: A legal guardian or parent responsible for a child under 18 using the website.\n
@@ -616,7 +612,7 @@ Updated versions will be communicated to families and may also be posted on the 
         heading: "Contact Information for Privacy Requests",
         body: `Parents or guardians who have questions or concerns about the collection, use, or disclosure of their child’s personal information can contact:
 
-Email: narthanadanceschool@gmail.com
+Email: info@dancewithsnn.com
 Phone: 630-750-5272`,
       },
     ],
@@ -681,11 +677,7 @@ I release and hold harmless SreeNarthana Natyalaya and its teachers from any lia
 Emergency Medical Consent
 In case of an emergency, I authorize the teacher to seek medical treatment for my child if I cannot be reached.
 
-By signing below, parents or guardians acknowledge that they have read and understood the consents and waiver guidelines of Sreenarthana Natyalaya.
-
-Student Name: _____________________________
-Parent/Guardian Name: ___________________________
-Date: __________________________`,
+By signing below, parents or guardians acknowledge that they have read and understood the consents and waiver guidelines of Sreenarthana Natyalaya.`,
       },
     ],
   },

@@ -2,91 +2,121 @@ import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 const MotionBox = motion(Box);
 const MotionImg = motion("img");
 const MotionButton = motion(Button);
 const MotionTypography = motion(Typography);
 
+/*
+ * Reads the actual rendered navbar height at runtime so we never
+ * hard-code a pixel value. Falls back to 72px if the element isn't found.
+ */
+function useNavbarHeight() {
+  const [height, setHeight] = useState(72);
+
+  useEffect(() => {
+    const measure = () => {
+      const nav = document.querySelector("nav[aria-label='Main navigation']");
+      if (nav) setHeight(nav.getBoundingClientRect().height);
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  return height;
+}
+
 export default function HeroSection({ onScrollDown }) {
+  const navH = useNavbarHeight();
+
   return (
     <Box
       component="section"
       sx={{
         position: "relative",
-        height: { xs: "95vh", md: "95vh" },
+        /*
+         * Fill the viewport BELOW the navbar.
+         * 100dvh accounts for mobile browser chrome (avoids the address-bar
+         * jump that 100vh causes on iOS/Android).
+         */
+        height: `calc(100dvh - ${navH}px)`,
+        minHeight: "480px",      /* never collapse on tiny screens */
         width: "100%",
         overflow: "hidden",
         backgroundColor: "#000000",
+        /*
+         * Push the section down by the navbar height so it starts exactly
+         * where the navbar ends — no overlap, no gap.
+         */
+        mt: `${navH}px`,
       }}
     >
-      {/* Background Image */}
+      {/* ── Background image + overlays ── */}
       <Box sx={{ position: "absolute", inset: 0 }}>
-        {/* Gradient Overlay with maroon tint */}
         <Box
           sx={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(124,27,50,0.25), rgba(0,0,0,0.85))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(124,27,50,0.2) 50%, rgba(0,0,0,0.82) 100%)",
             zIndex: 1,
           }}
         />
         <MotionImg
-          // src="https://images.unsplash.com/photo-1764014792666-0f9e3c8442a9?auto=format&fit=crop&w=1600&q=80"
           src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774683883/StudentPic4_yi3k2b.webp"
           alt="Bharatanatyam Performance"
-          initial={{ scale: 1.1 }}
+          initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center top 40%",
-            opacity: 0.7,
+            objectPosition: "center 30%",
+            opacity: 0.72,
           }}
         />
       </Box>
 
-      {/* Decorative maroon glow elements ...*/}
+      {/* ── Ambient glow blobs ── */}
       <MotionBox
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
+        animate={{ opacity: 0.18 }}
         transition={{ duration: 2, delay: 0.5 }}
         sx={{
           position: "absolute",
-          top: "20%",
-          right: "10%",
-          width: "400px",
-          height: "400px",
+          top: "18%", right: "8%",
+          width: "35vw", height: "35vw",
+          maxWidth: "400px", maxHeight: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, transparent 70%, rgba(124, 27, 50, 0.4) 0%)",
-          filter: "blur(500px)",
-          zIndex: 1,
+          background: "radial-gradient(circle, rgba(124,27,50,0.5) 0%, transparent 70%)",
+          filter: "blur(80px)",
+          zIndex: 1, pointerEvents: "none",
         }}
       />
-
       <MotionBox
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
+        animate={{ opacity: 0.14 }}
         transition={{ duration: 2, delay: 0.7 }}
         sx={{
           position: "absolute",
-          bottom: "15%",
-          left: "8%",
-          width: "350px",
-          height: "350px",
+          bottom: "18%", left: "6%",
+          width: "30vw", height: "30vw",
+          maxWidth: "350px", maxHeight: "350px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, transparent 70%, rgba(124, 27, 50, 0.35) 0%)",
-          filter: "blur(500px)",
-          zIndex: 1,
+          background: "radial-gradient(circle, rgba(124,27,50,0.45) 0%, transparent 70%)",
+          filter: "blur(80px)",
+          zIndex: 1, pointerEvents: "none",
         }}
       />
 
-      {/* Content */}
+      {/* ── Hero copy ── */}
       <MotionBox
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 36 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
         sx={{
@@ -96,44 +126,49 @@ export default function HeroSection({ onScrollDown }) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          /*
+           * Anchor content to the bottom third of the available
+           * (navbar-subtracted) viewport — works at any screen size.
+           */
           justifyContent: "flex-end",
-          pb: { xs: 10, md: 6 },
-          px: 3,
+          /*
+           * Bottom padding: enough to clear the scroll chevron (≈56px) plus
+           * a comfortable breathing gap. Using percentage keeps it
+           * proportional on tall/short screens.
+           */
+          pb: "8%",
+          px: { xs: "5%", md: "8%" },
           textAlign: "center",
         }}
       >
-        {/* Decorative line above heading --outer*/}
+        {/* Top decorative rule */}
         <MotionBox
           initial={{ width: 0 }}
-          animate={{ width: "80px" }}
+          animate={{ width: "5vw" }}
           transition={{ duration: 0.8, delay: 0.4 }}
           sx={{
             height: "2px",
-            background: "radial-gradient(circle, transparent 70%, rgba(124, 27, 50, 0.4) 0%)",
-            mb: 4,
+            minWidth: "40px", maxWidth: "80px",
+            background: "linear-gradient(90deg, transparent, rgba(124,27,50,0.7), transparent)",
+            mb: "3%",
           }}
         />
 
         <MotionTypography
           variant="h2"
-          // initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           sx={{
             fontFamily: "'Berkshire Swash', cursive",
             // fontStyle: "italic",
-            fontSize: { xs: "2.5rem", sm: "2rem", md: "3rem", lg: "4rem" },
+            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "4rem" },
             color: "#FDE8E0",
-            // m : "46px 48px 0 48px",
-            textAlign: "center",
             fontWeight: 800,
-            mb: { xs: 0, md: 2 },
             letterSpacing: "0.02em",
-            textShadow:
-                "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.7)",
+            textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.7)",
+            mb: "2%",
+            lineHeight: 1.15,
           }}
         >
           Nurturing Bharatanatyam Excellence
@@ -162,73 +197,17 @@ export default function HeroSection({ onScrollDown }) {
           Experience the timeless elegance of our classical Indian dance.
         </MotionTypography>
 
-        {/* Buttons */}
+        {/* CTA button */}
         <MotionBox
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          sx={{
-            display: "flex",
-            gap: 3,
-            flexWrap: "wrap",
-            justifyContent: "center",
-            mt: 2,
-          }}
+          sx={{ display: "flex", gap: 3, flexWrap: "wrap", justifyContent: "center", mt: "1%" }}
         >
-          {/* <MotionButton
-            component="a"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfkF11rllSLF2jAGpF_Q8mfBgMvAhZKEEqlaGY52lGvHjLiZg/viewform?usp=sharing&ouid=117175852009957048619"   // ← put your real link here
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 40px rgba(124,27,50,0.5)",
-            }}
-            whileTap={{ scale: 0.98 }}
-            sx={{
-              px: { xs: 4, md: 6 },
-              py: { xs: 1.75, md: 2 },
-              borderRadius: "50px",
-              backgroundColor: "#7C1B32",
-              color: "#FDE8E0",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: { xs: "0.95rem", md: "1.05rem" },
-              fontWeight: 600,
-              letterSpacing: "0.5px",
-              textTransform: "uppercase",
-              position: "relative",
-              overflow: "hidden",
-              boxShadow: "0 4px 20px rgba(124,27,50,0.3)",
-              transition: "all 0.3s ease",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: "-100%",
-                width: "100%",
-                height: "100%",
-                background: "radial-gradient(circle, transparent 70%, rgba(124, 27, 50, 0.4) 0%)",
-                transition: "left 0.5s ease",
-              },
-              "&:hover": {
-                backgroundColor: "#9a2240",
-              },
-              "&:hover::before": {
-                left: "100%",
-              },
-            }}
-          >
-            Enroll Now
-          </MotionButton> */}
-
           <MotionButton
             component={Link}
             to="/contact"
             variant="outlined"
-            // whileHover={{
-            //   scale: 1.05,
-            //   boxShadow: "0 8px 30px rgba(253,232,224,0.2)",
-            // }}
             whileTap={{ scale: 0.98 }}
             sx={{
                 display: "inline-flex",
@@ -286,20 +265,21 @@ export default function HeroSection({ onScrollDown }) {
           </MotionButton>
         </MotionBox>
 
-        {/* Decorative line below buttons */}
+        {/* Bottom decorative rule */}
         <MotionBox
           initial={{ width: 0 }}
-          animate={{ width: "60px" }}
+          animate={{ width: "4vw" }}
           transition={{ duration: 0.8, delay: 1.1 }}
           sx={{
             height: "2px",
+            minWidth: "36px", maxWidth: "60px",
             background: "linear-gradient(90deg, transparent, #7C1B32, transparent)",
-            mt: 5,
+            mt: "3%",
           }}
         />
       </MotionBox>
 
-      {/* Scroll Indicator */}
+      {/* ── Scroll chevron ── */}
       <MotionBox
         onClick={onScrollDown}
         initial={{ opacity: 0 }}
@@ -307,23 +287,25 @@ export default function HeroSection({ onScrollDown }) {
         transition={{ duration: 0.8, delay: 1.3 }}
         sx={{
           position: "absolute",
-          bottom: { xs: 24, md: 32 },
+          /*
+           * 3% from bottom keeps it proportional; min 16px so it never
+           * hugs the edge on a landscape phone.
+           */
+          bottom: "max(3%, 16px)",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 2,
           cursor: "pointer",
           color: "#7C1B32",
           transition: "color 0.3s ease",
-          "&:hover": {
-            color: "#E94B6E",
-          },
+          "&:hover": { color: "#E94B6E" },
         }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 9, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown size={40} strokeWidth={2} />
+          <ChevronDown size={36} strokeWidth={2} />
         </motion.div>
       </MotionBox>
     </Box>

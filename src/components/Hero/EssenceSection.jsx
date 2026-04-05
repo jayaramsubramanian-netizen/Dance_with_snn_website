@@ -80,7 +80,7 @@ export function EssenceSection() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,1) 100%)",
+              "linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 90%, rgba(0,0,0,1) 100%)",
           }}
         />
       </Box>

@@ -190,7 +190,7 @@ export default function MissionVisionSection() {
                     <Typography
                       sx={{
                         fontFamily: "'Roboto', sans-serif",
-                        fontSize: { xs: "0.9rem", md: "0.95rem" },
+                        fontSize: { xs: "1.05rem", md: "1.2rem" },
                         color: "rgba(253,232,224,0.65)",
                         lineHeight: 1.65,
                       }}

@@ -171,7 +171,7 @@ export function Footer() {
                 <Typography
                   sx={{ color: "rgba(253,232,224,0.7)", fontSize: "0.9rem" }}
                 >
-                  narthanadanceschool@gmail.com
+                  info@dancewithsnn.com
                 </Typography>
               </Box>
             </Box>

@@ -7,8 +7,8 @@ const MotionBox = motion(Box);
 const MotionTypography = motion(Typography);
 
 /* ─── shared bg tones ─── */
-const BG   = "linear-gradient(180deg, #06030A 0%, #0f0408 30%, #150508 55%, #0f0408 78%, #06030A 100%)";
-const S    = "#06030A";   /* smudge colour — matches bg edges */
+const BG = "linear-gradient(180deg, #06030A 0%, #0f0408 30%, #150508 55%, #0f0408 78%, #06030A 100%)";
+const S = "#06030A";   /* smudge colour — matches bg edges */
 const SMID = "#0f0408";   /* smudge colour — matches bg mid   */
 
 export function DividerAndCTASection() {
@@ -74,7 +74,7 @@ export function DividerAndCTASection() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682332/DSC_1096_go4ujt.webp"
+              src="https://res.cloudinary.com/dtovj9rds/image/upload/c_fit,w_800,h_800/v1774682332/DSC_1096_go4ujt.webp"
               alt="Classical dance mudra"
               sx={{
                 width: "100%",
@@ -92,7 +92,7 @@ export function DividerAndCTASection() {
                 pointerEvents: "none",
                 background: `
                   linear-gradient(to right,  ${S} 0%, transparent 22%, transparent 78%, ${S} 100%),
-                  linear-gradient(to bottom, ${S} 0%, transparent 18%, transparent 65%, ${SMID} 100%)
+                  linear-gradient(to bottom, transparent 0%, transparent 65%, ${SMID} 100%)
                 `,
               }}
             />
@@ -300,7 +300,8 @@ export function DividerAndCTASection() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682330/DSC_0896_kz8din.webp"
+              // src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682330/DSC_0896_kz8din.webp"
+              src="https://res.cloudinary.com/dtovj9rds/image/upload/v1775381602/StudentPic6_y1rpwz.jpg"
               alt="Classical dance"
               loading="lazy"
               decoding="async"
@@ -320,7 +321,7 @@ export function DividerAndCTASection() {
                 pointerEvents: "none",
                 background: `
                   linear-gradient(to right,  ${SMID} 0%, transparent 22%, transparent 78%, ${SMID} 100%),
-                  linear-gradient(to bottom, ${SMID} 0%, transparent 18%, transparent 65%, ${S} 100%)
+                  linear-gradient(to bottom, transparent 0%, transparent 65%, ${S} 100%)
                 `,
               }}
             />

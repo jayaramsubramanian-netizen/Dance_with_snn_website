@@ -4,6 +4,8 @@ import { motion, useAnimation } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CalendarClock } from "lucide-react";
 import { useState, useEffect } from "react";
 
+import emailjs from "emailjs-com";
+
 const MotionBox = motion(Box);
 const MotionTypo = motion(Typography);
 
@@ -102,15 +104,15 @@ export default function ContactSection() {
   const [openPopup, setOpenPopup] = useState(false);
 
   const contactInfo = [
-    { icon: Mail, title: "Email Us", value: "narthanadanceschool@gmail.com", link: "mailto:narthanadanceschool@gmail.com" },
+    { icon: Mail, title: "Email Us", value: "info@dancewithsnn.com", link: "mailto:info@dancewithsnn.com" },
     { icon: Phone, title: "Call Us", value: "+1 (630) 750-5272", link: "tel:+16307505272" },
     { icon: MapPin, title: "Visit Us", value: "27938 Robinson Park Dr, Spring, TX 77386", link: "https://www.google.com/maps/search/?api=1&query=27938+Robinson+Park+Dr,+Spring+Texas+77386" },
     { icon: CalendarClock, title: "Hours", value: "Mon – Fri: 4:00 pm – 8:00 pm", link: "#" },
   ];
 
   const socials = [
-    { Icon: IconInstagram, href: "#", label: "Instagram" },
-    { Icon: IconFacebook, href: "#", label: "Facebook" },
+    { Icon: IconInstagram, href: "https://www.instagram.com/sreenarthananatyalaya", target: "_blank", rel: "noopener noreferrer", label: "Instagram" },
+    { Icon: IconFacebook, href: "https://www.facebook.com/people/SreeNarthana-Natyalaya/61572820671359/?mibextid=wwXIfr&rdid=K7rebQmrz9TbGyt9&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1B9ATQf4W3%2F%3Fmibextid%3DwwXIfr%26ref%3D1", target: "_blank", rel: "noopener noreferrer", label: "Facebook" },
   ];
 
   useEffect(() => {
@@ -121,9 +123,43 @@ export default function ContactSection() {
   }, [btnCtrl]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setOpenPopup(true);
+  e.preventDefault();
+
+  const templateParams = {
+    name: formData.name,
+    email: formData.email,
+    title: formData.phone,
+    message: formData.message,
   };
+
+  emailjs
+    .send(
+      "service_m01j2c8",   // 🔴 replace
+      "template_2gqzve9",  // 🔴 replace
+      templateParams,
+      "X-nZI6qihsRCyhqtZ"    // 🔴 replace
+    )
+    .then(
+      (result) => {
+        console.log("SUCCESS:", result.text);
+
+        setSent(true);
+        setOpenPopup(true);
+
+        // reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      },
+      (error) => {
+        console.log("FAILED:", error.text);
+        alert("Something went wrong. Please try again.");
+      }
+    );
+};
 
   const cardVariants = {
     hidden: { opacity: 0, y: 14, scale: 0.97 },
@@ -149,7 +185,7 @@ export default function ContactSection() {
         width: "100%",
         display: "grid",
         mt: { xs: "70px", md: "60px" },
-        gridTemplateColumns: { xs: "1fr", md: "4.5fr 5.5fr 3.5fr" },
+        gridTemplateColumns: { xs: "1fr", md: "5fr 5fr 3.5fr" },
         gridTemplateRows: { xs: "auto auto auto", md: "1fr" },
         overflow: { xs: "visible", md: "hidden" },
         background: "#080C11",
@@ -168,7 +204,7 @@ export default function ContactSection() {
            * Desktop: leftmost column (order 1)
            */
           order: { xs: 3, md: 1 },
-          background: `linear-gradient(160deg, #180810 0%, #0F060A 60%, #0A0D12 100%)`,
+          background: C.maroon,
           borderTop: { xs: `1px solid ${C.panelBorder}`, md: "none" },
           borderRight: { md: `1px solid ${C.panelBorder}` },
           p: { xs: "40px 22px 48px", sm: "48px 36px", md: "40px 40px" },
@@ -545,7 +581,8 @@ export default function ContactSection() {
             backdropFilter: "blur(6px)",
           }}
         >
-          This feature is under construction. Please use "Email Us" above.
+          {/* This feature is under construction. Please use "Email Us" above. */}
+          Message sent successfully!
         </Alert>
       </Snackbar>
 
