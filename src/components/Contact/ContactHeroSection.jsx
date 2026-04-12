@@ -134,10 +134,10 @@ export default function ContactSection() {
 
   emailjs
     .send(
-      "service_m01j2c8",   // 🔴 replace
-      "template_2gqzve9",  // 🔴 replace
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,   // 🔴 replace
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  // 🔴 replace
       templateParams,
-      "X-nZI6qihsRCyhqtZ"    // 🔴 replace
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY    // 🔴 replace
     )
     .then(
       (result) => {

@@ -9,3 +9,9 @@
   color: #D4A574;
   text-shadow: 0 0 6px rgba(124,27,50,0.5);
 }
+
+img {
+  -webkit-user-drag: none; /* Safari/Chrome */
+  user-drag: none;
+  user-select: none;
+}
