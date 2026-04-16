@@ -34,6 +34,29 @@ export default function Events() {
         <meta property="og:type" content="website" />
 
         <link rel="canonical" href="https://dancewithsnn.com/events" />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://dancewithsnn.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Events",
+                  "item": "https://dancewithsnn.com/events"
+                }
+              ]
+            }
+          `}
+        </script>
       </Helmet>
 
       {/* UI */}

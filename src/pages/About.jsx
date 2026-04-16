@@ -41,16 +41,47 @@ export default function About() {
               "@context": "https://schema.org",
               "@type": "DanceSchool",
               "name": "Sree Narthana Natyalaya",
+              "alternateName": "Dance With SNN",
+              "url": "https://dancewithsnn.com/about",
               "founder": {
                 "@type": "Person",
-                "name": "Shree Nandini"
+                "name": "Shree Nandini",
+                "jobTitle": "Bharatanatyam Guru",
+                "worksFor": {
+                  "@type": "DanceSchool",
+                  "name": "Sree Narthana Natyalaya"
+                }
               },
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "27938 Robinson Park Dr",
                 "addressLocality": "Spring",
                 "addressRegion": "TX",
+                "postalCode": "77386",
                 "addressCountry": "US"
               }
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://dancewithsnn.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About",
+                  "item": "https://dancewithsnn.com/about"
+                }
+              ]
             }
           `}
         </script>

@@ -26,7 +26,7 @@ export default function Home() {
         />
 
         <meta property="og:title" content="Sree Narthana Natyalaya | Bharatanatyam Classes in Texas" />
-        <meta property="og:description" content="Professional Bharatanatyam dance training." />
+        <meta property="og:description" content="Learn Bharatanatyam from Guru Shree Nandini at Sree Narthana Natyalaya. Classes for beginners, kids, and advanced students in Texas." />
         <meta property="og:image" content="https://dancewithsnn.com/Logo.png" />
         <meta property="og:url" content="https://dancewithsnn.com/" />
         <meta property="og:type" content="website" />
@@ -39,6 +39,11 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "DanceSchool",
               "name": "Sree Narthana Natyalaya",
+              "alternateName": "Dance With SNN",
+              "url": "https://dancewithsnn.com",
+              "logo": "https://dancewithsnn.com/Logo.png",
+              "image": "https://dancewithsnn.com/Logo.png",
+              "description": "Bharatanatyam classical dance school in Spring, Texas offering training for beginners, kids, and advanced students under Guru Shree Nandini.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "27938 Robinson Park Dr",
@@ -47,7 +52,31 @@ export default function Home() {
                 "postalCode": "77386",
                 "addressCountry": "US"
               },
-              "telephone": "+16307505272"
+              "telephone": "+16307505272",
+              "founder": {
+                "@type": "Person",
+                "name": "Shree Nandini"
+              },
+              "sameAs": [
+                "https://www.instagram.com/dancewithsnn",
+                "https://www.facebook.com/dancewithsnn"
+              ]
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://dancewithsnn.com/"
+                }
+              ]
             }
           `}
         </script>

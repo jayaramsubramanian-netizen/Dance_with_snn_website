@@ -37,6 +37,9 @@ export default function Contact() {
               "@context": "https://schema.org",
               "@type": "DanceSchool",
               "name": "Sree Narthana Natyalaya",
+              "alternateName": "Dance With SNN",
+              "url": "https://dancewithsnn.com/contact",
+              "image": "https://dancewithsnn.com/Logo.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "27938 Robinson Park Dr",
@@ -45,7 +48,40 @@ export default function Contact() {
                 "postalCode": "77386",
                 "addressCountry": "US"
               },
-              "telephone": "+16307505272"
+              "telephone": "+16307505272",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+16307505272",
+                "contactType": "customer support",
+                "areaServed": "US",
+                "availableLanguage": ["English", "Tamil", "Kannada"]
+              },
+              "sameAs": [
+                "https://www.instagram.com/dancewithsnn",
+                "https://www.facebook.com/dancewithsnn"
+              ]
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://dancewithsnn.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact",
+                  "item": "https://dancewithsnn.com/contact"
+                }
+              ]
             }
           `}
         </script>
