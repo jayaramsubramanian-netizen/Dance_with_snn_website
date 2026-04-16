@@ -105,6 +105,26 @@ function injectMeta(html, meta) {
   return out;
 }
 
+/**
+ * react-helmet-async renders <title>, <meta>, and <link rel="canonical"> tags
+ * into the SSR body output (inside #root) as well as into helmetContext.
+ * These are duplicates of the tags already in <head> — strip them from the
+ * body to prevent duplicate canonicals (which cause GSC warnings).
+ * We intentionally KEEP <link rel="preload"> tags as they help performance.
+ */
+function stripHelmetTagsFromBody(html) {
+  return html
+    // Remove <title>...</title>
+    .replace(/<title[^>]*>[\s\S]*?<\/title>/g, '')
+    // Remove <meta name=... /> and <meta property=... /> (description, og:*, etc.)
+    .replace(/<meta\s+(?:name|property|http-equiv)=[^>]+\/>/g, '')
+    // Remove <link rel="canonical" ... />
+    .replace(/<link\s+rel="canonical"[^>]+\/>/g, '')
+    // Remove <script type="application/ld+json">...</script> from body
+    // (schema is already in <head> via index.html and page Helmet — avoid duplication)
+    .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+}
+
 async function main() {
   // Verify the SSR bundle exists
   if (!fs.existsSync(serverEntryPath)) {
@@ -126,8 +146,9 @@ async function main() {
 
     let html = template;
 
-    // 1. Inject real React HTML (what Googlebot will read)
-    html = html.replace('<!--app-html-->', appHtml);
+    // 1. Inject real React HTML (what Googlebot will read).
+    //    Strip duplicate head tags that react-helmet-async renders into the body.
+    html = html.replace('<!--app-html-->', stripHelmetTagsFromBody(appHtml));
 
     // 2. Inject critical MUI/emotion CSS (prevents CLS — Core Web Vitals)
     html = html.replace('<!--emotion-styles-->', emotionStyleTags || '');
