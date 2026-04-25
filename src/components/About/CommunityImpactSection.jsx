@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function CommunityImpactSection() {
   const stats = [
@@ -34,6 +34,7 @@ export default function CommunityImpactSection() {
           component="img"
           src="https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
           alt="Dance background"
+          loading="lazy"
           sx={{
             width: "100%",
             height: "100%",
@@ -124,7 +125,7 @@ export default function CommunityImpactSection() {
               fontFamily: "'Berkshire Swash', cursive",
               fontSize: { xs: "2.8rem", sm: "3.5rem", md: "4rem" },
               color: "#FDE8E0",
-              fontWeight: 600,
+              fontWeight: 800,
               letterSpacing: "0.03em",
               textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)",
               mb: 3,

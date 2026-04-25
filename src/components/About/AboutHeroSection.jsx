@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 export default function AboutHeroSection() {
   return (
@@ -57,8 +57,9 @@ export default function AboutHeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           sx={{
             fontFamily: "'Berkshire Swash', cursive",
-            fontSize: { xs: "3rem", sm: "4rem", md: "3.5rem", lg: "4rem" },
+            fontSize: { xs: "2.8rem", sm: "4rem", md: "3.5rem", lg: "4rem" },
             lineHeight: 1.1,
+            fontWeight: 800,
             color: "#FFF5F2",
             letterSpacing: "0.02em",
             mb: 3,
@@ -142,7 +143,8 @@ export default function AboutHeroSection() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682832/bgImage_bndvj6.webp"
+            // src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774682832/bgImage_bndvj6.webp"
+            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1777104977/Collage_i2lr4m.webp"
             alt="Dance instruction"
             sx={{
               width: "100%",

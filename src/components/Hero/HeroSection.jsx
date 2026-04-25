@@ -4,10 +4,10 @@ import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-const MotionBox = motion(Box);
-const MotionImg = motion("img");
-const MotionButton = motion(Button);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionImg = motion.create("img");
+const MotionButton = motion.create(Button);
+const MotionTypography = motion.create(Typography);
 
 /*
  * Reads the actual rendered navbar height at runtime so we never
@@ -67,8 +67,9 @@ export default function HeroSection({ onScrollDown }) {
           }}
         />
         <MotionImg
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774683883/StudentPic4_yi3k2b.webp"
+          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683883/StudentPic4_yi3k2b.webp"
           alt="Bharatanatyam Performance"
+          fetchPriority="high"
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.6, ease: "easeOut" }}
@@ -149,7 +150,7 @@ export default function HeroSection({ onScrollDown }) {
           sx={{
             height: "2px",
             minWidth: "40px", maxWidth: "80px",
-            background: "linear-gradient(90deg, transparent, rgba(124,27,50,0.7), transparent)",
+            // background: "linear-gradient(90deg, transparent, rgba(124,27,50,0.7), transparent)",
             mb: "3%",
           }}
         />

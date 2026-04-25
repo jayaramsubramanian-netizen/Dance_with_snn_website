@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Check, Users, Clock } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const EASE = [0.4, 0, 0.2, 1];
 
 /* ── One color theme per program level ── */
@@ -30,7 +30,7 @@ const CLASSES = [
     age: "6 to 12 years",
     duration: "60 minutes",
     students: "5 to 8 students",
-    image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774683397/DSC_0788_zdhr5c.webp",
+    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774683397/DSC_0788_zdhr5c.webp",
     theme: 0,
   },
   {
@@ -49,7 +49,7 @@ const CLASSES = [
     age: "10 to 16 years",
     duration: "75 minutes",
     students: "5 to 8 students",
-    image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703759/level2_pifsup.jpg",
+    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703759/level2_pifsup.jpg",
     theme: 1,
   },
   {
@@ -68,7 +68,8 @@ const CLASSES = [
     age: "16+ years",
     duration: "75 to 90 minutes",
     students: "5 to 8 students",
-    image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774683852/StudentPic3_hvowvd.webp",
+    // image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774683852/StudentPic3_hvowvd.webp",
+    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1777104481/DSC09376_check_zcqs9p.jpg",
     theme: 2,
   },
 ];
@@ -379,7 +380,7 @@ export default function ClassesGridSection() {
       ].map((g, i) => (
         <MotionBox
           key={i}
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 2.5, delay: i * 0.25 }}
           sx={{
@@ -410,7 +411,7 @@ export default function ClassesGridSection() {
             fontFamily: "'Berkshire Swash', cursive",
             fontSize: { xs: "2.6rem", sm: "3.2rem", md: "3.8rem" },
             color: "#FDE8E0",
-            fontWeight: 400,
+            fontWeight: 800,
             letterSpacing: "0.03em",
             textShadow: "0 4px 24px rgba(124,27,50,0.45)",
             mb: 1.5, lineHeight: 1.1,

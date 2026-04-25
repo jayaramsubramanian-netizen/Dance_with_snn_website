@@ -3,8 +3,8 @@ import { Box } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const MotionBox = motion(Box);
-const MotionNavItem = motion(Box);
+const MotionBox = motion.create(Box);
+const MotionNavItem = motion.create(Box);
 
 export function Navigation() {
   const location = useLocation();
@@ -35,7 +35,7 @@ export function Navigation() {
       <MotionBox
         component="nav"
         aria-label="Main navigation"
-        initial={{ y: -80, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         sx={{
@@ -96,7 +96,7 @@ export function Navigation() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774683040/SNN_TEXT_p4wyx2.webp"
+              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_300/v1774683040/SNN_TEXT_p4wyx2.webp"
               alt="SreeNarthana Natyalaya"
               sx={{
                 height: { xs: 60, sm: 50, md: 90 },

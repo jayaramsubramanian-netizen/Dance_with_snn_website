@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import AnimatedDivider from "./AnimatedDivider";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -38,7 +38,7 @@ export default function ComingSoon() {
         px: 3,
       }}>
         <MotionTypography
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
           sx={{
@@ -54,7 +54,7 @@ export default function ComingSoon() {
         </MotionTypography>
 
         <MotionBox
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
         >
@@ -62,7 +62,7 @@ export default function ComingSoon() {
         </MotionBox>
 
         <MotionTypography
-          initial={{ opacity: 0, y: 24 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.25, ease: EASE }}
           sx={{
@@ -79,7 +79,7 @@ export default function ComingSoon() {
         </MotionTypography>
 
         <MotionBox
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.45, ease: EASE }}
         >
@@ -87,7 +87,7 @@ export default function ComingSoon() {
         </MotionBox>
 
         <MotionTypography
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.55, ease: EASE }}
           sx={{

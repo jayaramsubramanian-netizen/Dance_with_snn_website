@@ -40,6 +40,8 @@ export default function Classes() {
               "@context": "https://schema.org",
               "@type": "DanceSchool",
               "name": "Sree Narthana Natyalaya",
+              "alternateName": "Dance With SNN",
+              "url": "https://dancewithsnn.com/classes",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "27938 Robinson Park Dr",
@@ -48,7 +50,59 @@ export default function Classes() {
                 "postalCode": "77386",
                 "addressCountry": "US"
               },
-              "telephone": "+16307505272"
+              "telephone": "+16307505272",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Bharatanatyam Classes",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Course",
+                      "name": "Beginner Bharatanatyam",
+                      "description": "Introductory Bharatanatyam training for new students and kids.",
+                      "provider": {
+                        "@type": "DanceSchool",
+                        "name": "Sree Narthana Natyalaya"
+                      }
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Course",
+                      "name": "Advanced Bharatanatyam",
+                      "description": "Advanced classical Bharatanatyam training for experienced students.",
+                      "provider": {
+                        "@type": "DanceSchool",
+                        "name": "Sree Narthana Natyalaya"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://dancewithsnn.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Classes",
+                  "item": "https://dancewithsnn.com/classes"
+                }
+              ]
             }
           `}
         </script>

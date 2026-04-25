@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function LegacySection() {
   return (
@@ -31,6 +31,7 @@ export default function LegacySection() {
           component="img"
           src="https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
           alt="Indian dance mudra hands"
+          loading="lazy"
           sx={{
             width: "100%",
             height: "100%",
@@ -117,9 +118,9 @@ export default function LegacySection() {
             component="h2"
             sx={{
               fontFamily: "'Berkshire Swash', cursive",
-              fontSize: { xs: "2.8rem", sm: "3.5rem", md: "4rem" },
+              fontSize: { xs: "2rem", sm: "3.5rem", md: "4rem" },
               color: "#FDE8E0",
-              fontWeight: 600,
+              fontWeight: 800,
               letterSpacing: "0.03em",
               textShadow:
                 "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)",

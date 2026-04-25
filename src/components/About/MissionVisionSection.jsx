@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Heart, Award, Target } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -88,6 +88,7 @@ export default function MissionVisionSection() {
                 fontFamily: "'Berkshire Swash', cursive",
                 fontSize: { xs: "2.5rem", md: "3.4rem" },
                 color: "#FDE8E0",
+                fontWeight: 800,
                 lineHeight: 1.1,
                 letterSpacing: "0.02em",
                 mb: 1,
@@ -223,7 +224,7 @@ export default function MissionVisionSection() {
           <Box
             component="img"
             // src="https://res.cloudinary.com/dtovj9rds/image/upload/v1773579848/Shiva_yxbzeb.jpg"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774683042/Shiva_v8qrjy.webp"
+            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774683042/Shiva_v8qrjy.webp"
             alt="Shiva Nataraja"
             loading="lazy"
             decoding="async"
@@ -288,7 +289,7 @@ export default function MissionVisionSection() {
                 mt: 0.3,
               }}
             >
-              Lord of the Dance
+              Lord of Dance
             </Typography>
           </Box>
         </MotionBox>

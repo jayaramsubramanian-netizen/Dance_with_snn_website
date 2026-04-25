@@ -2,7 +2,7 @@
 // import { motion } from "framer-motion";
 // import { Calendar, MapPin } from "lucide-react";
 
-// const MotionBox = motion(Box);
+// const MotionBox = motion.create(Box);
 
 // const events = [
 //   {

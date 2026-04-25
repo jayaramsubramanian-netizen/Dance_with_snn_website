@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Clock } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const THEMES = [
   { color: "#7C1B32", rgb: "124,27,50", stripe: "#FF8FA3" },
@@ -13,10 +13,10 @@ const THEMES = [
 ];
 
 const SCHEDULE = [
-  { day: "Monday", times: ["5:30 pm – 6:30 pm", "6:45 pm – 7:45 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703760/monday_nardeq.jpg", theme: 0 },
-  { day: "Wednesday", times: ["5:30 pm – 6:30 pm", "6:45 pm – 7:45 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703088/DSC09424_h1l4qx.jpg", theme: 2 },
-  { day: "Thursday", times: ["5:30 pm – 6:30 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774704096/thursday_ehjrrn.jpg", theme: 1 },
-  { day: "Friday", times: ["5:30 pm – 6:30 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774683850/StudentPic2_uwtyps.webp", theme: 3 },
+  { day: "Monday", times: ["5:30 pm – 6:30 pm", "6:45 pm – 7:45 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703760/monday_nardeq.jpg", theme: 0 },
+  { day: "Wednesday", times: ["5:30 pm – 6:30 pm", "6:45 pm – 7:45 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703088/DSC09424_h1l4qx.jpg", theme: 2 },
+  { day: "Thursday", times: ["5:30 pm – 6:30 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774704096/thursday_ehjrrn.jpg", theme: 1 },
+  { day: "Friday", times: ["5:30 pm – 6:30 pm"], image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1777104978/DSC09084_check_puwpk7.webp", theme: 3 },
 ];
 
 const cardVariants = {
@@ -232,8 +232,9 @@ export default function ClassScheduleSection() {
             component="h2"
             sx={{
               fontFamily: "'Berkshire Swash', cursive",
-              fontSize: { xs: "2.4rem", sm: "3rem", md: "3.6rem" },
+              fontSize: { xs: "2.8rem", sm: "3rem", md: "3.6rem" },
               color: "#FDE8E0",
+              fontWeight: 800,
               mb: 1.2,
             }}
           >

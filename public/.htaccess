@@ -1,12 +1,28 @@
 AddType application/xml .xml
 
+# Stop Apache from auto-adding a trailing slash to directory URLs.
+# Without this, /about → /about/ (301) which causes "Page with redirect"
+# and "Alternate page with proper canonical tag" in Google Search Console.
+DirectorySlash Off
+
 RewriteEngine On
 
-# Redirect www → non-www (optional but good)
+# 1. Redirect www → non-www
 RewriteCond %{HTTP_HOST} ^www\.dancewithsnn\.com [NC]
 RewriteRule ^(.*)$ https://dancewithsnn.com/$1 [L,R=301]
 
-# React SPA routing
+# 2. Redirect trailing slashes → no trailing slash (enforces canonical URLs)
+#    e.g. /about/ → /about
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+# 3. Serve pre-rendered index.html for clean URLs like /about
+#    Apache won't find /about as a file, but /about/index.html exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ $1/index.html [L]
+
+# 4. SPA fallback for any route without a pre-rendered file
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /index.html [L]

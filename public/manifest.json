@@ -1,0 +1,23 @@
+{
+  "name": "Sree Narthana Natyalaya",
+  "short_name": "Dance With SNN",
+  "description": "Bharatanatyam classical dance school in Spring, Texas under Guru Shree Nandini.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B0000",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 export default function ClassesHeroSection() {
   return (
@@ -51,7 +51,7 @@ export default function ClassesHeroSection() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774704095/DSC09538_gsl2xc.jpg"
+            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774704095/DSC09538_gsl2xc.jpg"
             alt="Dance training"
             sx={{
               width: "100%",
@@ -114,9 +114,9 @@ export default function ClassesHeroSection() {
           component="h1"
           sx={{
             fontFamily: "'Berkshire Swash', cursive",
-            fontSize: { xs: "3rem", sm: "4rem", md: "3.5rem", lg: "4rem" },
+            fontSize: { xs: "2.8rem", sm: "4rem", md: "3.5rem", lg: "4rem" },
             color: "#FDE8E0",
-            fontWeight: 600,
+            fontWeight: 800,
             letterSpacing: "0.03em",
             // textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)",
             mb: 3,
