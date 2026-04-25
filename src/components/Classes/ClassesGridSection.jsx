@@ -68,7 +68,8 @@ const CLASSES = [
     age: "16+ years",
     duration: "75 to 90 minutes",
     students: "5 to 8 students",
-    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774683852/StudentPic3_hvowvd.webp",
+    // image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774683852/StudentPic3_hvowvd.webp",
+    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1777104481/DSC09376_check_zcqs9p.jpg",
     theme: 2,
   },
 ];

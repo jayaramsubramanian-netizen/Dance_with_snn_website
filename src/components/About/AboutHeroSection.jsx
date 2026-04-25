@@ -143,7 +143,8 @@ export default function AboutHeroSection() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774682832/bgImage_bndvj6.webp"
+            // src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774682832/bgImage_bndvj6.webp"
+            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1777104977/Collage_i2lr4m.webp"
             alt="Dance instruction"
             sx={{
               width: "100%",

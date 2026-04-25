@@ -289,7 +289,7 @@ export default function MissionVisionSection() {
                 mt: 0.3,
               }}
             >
-              Lord of the Dance
+              Lord of Dance
             </Typography>
           </Box>
         </MotionBox>

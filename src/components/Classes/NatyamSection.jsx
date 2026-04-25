@@ -214,8 +214,8 @@ export default function NatyamSection() {
     { title: "Passionate Teaching",  description: "Led by Tradition, Inspired by Passion Learn Bharatanatyam under a passionate Guru, trained by renowned masters, blending classical lineage with dedicated mentorship.",    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774683850/StudentPic1_pznlfm.webp" },
     { title: "Small Group Batches",  description: "Carefully curated small batches provide individualized attention, allowing each student to refine technique, expression, and stage presence.",          image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703759/student2_zoe5lr.jpg" },
     { title: "One-on-One Sessions",  description: "Personalized individual sessions to refine performance and expression, supporting mastery in every aspect of dance.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703763/student4_fjnodc.jpg" },
-    { title: "Interactive Learning", description: "Fun and engaging teaching methods that make learning enjoyable for young dancers.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703762/student3_fgst4j.jpg" },
-    { title: "Periodic Evaluations", description: "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774704095/student5_b6mlme.jpg" },
+    { title: "Interactive Learning", description: "Fun and engaging teaching methods that make learning enjoyable for young dancers.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09449_check_kgcjhs.webp" },
+    { title: "Periodic Evaluations", description: "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09002_qdface.webp" },
   ];
 
   const handleClick = (i) => setActiveCard(activeCard === i ? null : i);
