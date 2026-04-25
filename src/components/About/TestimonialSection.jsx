@@ -4,8 +4,8 @@ import { Star, Quote } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,6 +57,13 @@ export default function TestimonialsSection() {
       comment: "Wonderful teaching and a very positive environment.",
       avatar: "P",
     },
+    {
+      name: "Kalyani Manikandan",
+      role: "Parent",
+      rating: 5,
+      comment: "As a parent, I am incredibly grateful for SreeNandini Jayaram, our guru, whose patience and creativity shine through in every Bharatanatyam class. She has truly nurtured both of our daughters’ interest and love for dance, while building strong technique and confidence. It is heartwarming to see their enthusiasm grow and their skills flourish under such thoughtful and dedicated guidance.",
+      avatar: "P",
+    },
   ];
 
   const nextTestimonial = () => {
@@ -70,7 +77,7 @@ export default function TestimonialsSection() {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextTestimonial, 6000);
+    const timer = setInterval(nextTestimonial, 10000);
     return () => clearInterval(timer);
   }, [currentIndex]);
 
@@ -106,11 +113,11 @@ export default function TestimonialsSection() {
     >
       {/* Decorative glows — unchanged */}
       <MotionBox
-        initial={{ opacity: 0 }} animate={{ opacity: 0.15 }} transition={{ duration: 2 }}
+        initial={false} animate={{ opacity: 0.15 }} transition={{ duration: 2 }}
         sx={{ position: "absolute", top: "20%", right: "10%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,27,50,0.4) 0%, transparent 70%)", filter: "blur(90px)", zIndex: 0, pointerEvents: "none" }}
       />
       <MotionBox
-        initial={{ opacity: 0 }} animate={{ opacity: 0.15 }} transition={{ duration: 2, delay: 0.3 }}
+        initial={false} animate={{ opacity: 0.15 }} transition={{ duration: 2, delay: 0.3 }}
         sx={{ position: "absolute", bottom: "20%", left: "10%", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,27,50,0.35) 0%, transparent 70%)", filter: "blur(90px)", zIndex: 0, pointerEvents: "none" }}
       />
 
@@ -123,7 +130,7 @@ export default function TestimonialsSection() {
           sx={{ textAlign: "center", mb: { xs: 4, md: 5 }, width: "100%" }}
         >
           <AnimatedDivider />
-          <MotionTypography component="h2" sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "2rem", sm: "2.6rem", md: "3rem" }, color: "#FFF5F2", fontWeight: 600, letterSpacing: "0.03em", textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)", mb: 1.5, mt: 1 }}>
+          <MotionTypography component="h2" sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "2rem", sm: "2.6rem", md: "3rem" }, color: "#FFF5F2", fontWeight: 800, letterSpacing: "0.03em", textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)", mb: 1.5, mt: 1 }}>
             Rasa Reflection
           </MotionTypography>
           <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "0.95rem", md: "1.1rem" }, color: "#E94B6E", letterSpacing: "0.05em", mb: 1.5 }}>

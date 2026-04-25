@@ -3,20 +3,22 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 /* ─── shared bg tones ─── */
-const BG = "linear-gradient(180deg, #06030A 0%, #0f0408 30%, #150508 55%, #0f0408 78%, #06030A 100%)";
-const S = "#06030A";   /* smudge colour — matches bg edges */
-const SMID = "#0f0408";   /* smudge colour — matches bg mid   */
+// Single solid colour used as both the section bg and the image container bg
+// so the smudge blends into exactly the same colour underneath.
+const BG = "#0f0408";
+const IMG_BG = "#0f0408";   /* image container bg — must match BG exactly */
+const FADE = "rgba(15,4,8,";  /* rgba version of #0f0408 for gradient stops */
 
 export function DividerAndCTASection() {
   return (
     <Box
       sx={{
         position: "relative",
-        background: BG,
+        backgroundColor: BG,
       }}
     >
       {/* ── Static ambient orbs ── */}
@@ -70,29 +72,31 @@ export function DividerAndCTASection() {
               height: { xs: "400px", sm: "500px", md: "600px" },
               flexShrink: 0,
               position: "relative",
+              backgroundColor: IMG_BG,
             }}
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/c_fit,w_800,h_800/v1774682332/DSC_1096_go4ujt.webp"
+              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774682332/DSC_1096_go4ujt.webp"
               alt="Classical dance mudra"
+              loading="lazy"
               sx={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: "contain",
                 objectPosition: "center 30%",
                 display: "block",
               }}
             />
-            {/* Smudge into bg */}
+            {/* Smudge — rgba so all 4 gradient layers compose correctly */}
             <Box
               sx={{
                 position: "absolute",
                 inset: 0,
                 pointerEvents: "none",
                 background: `
-                  linear-gradient(to right,  ${S} 0%, transparent 22%, transparent 78%, ${S} 100%),
-                  linear-gradient(to bottom, transparent 0%, transparent 65%, ${SMID} 100%)
+                  linear-gradient(to right,  ${FADE}1) 0%, ${FADE}0) 30%, ${FADE}0) 70%, ${FADE}1) 100%),
+                  linear-gradient(to bottom, ${FADE}1) 0%, ${FADE}0) 22%, ${FADE}0) 70%, ${FADE}1) 100%)
                 `,
               }}
             />
@@ -117,7 +121,7 @@ export function DividerAndCTASection() {
                 variant="h2"
                 sx={{
                   fontFamily: "'Berkshire Swash', cursive",
-                  fontSize: { xs: "2.8rem", sm: "3.5rem", md: "3.5rem" },
+                  fontSize: { xs: "2rem", sm: "3.5rem", md: "3.5rem" },
                   fontWeight: 600,
                   color: "#FDE8E0",
                   letterSpacing: "0.02em",
@@ -213,7 +217,7 @@ export function DividerAndCTASection() {
                 variant="h2"
                 sx={{
                   fontFamily: "'Berkshire Swash', cursive",
-                  fontSize: { xs: "2.5rem", sm: "3rem", md: "3.5rem" },
+                  fontSize: { xs: "2rem", sm: "3rem", md: "3.5rem" },
                   color: "#FDE8E0",
                   fontWeight: 600,
                   mb: 3,
@@ -296,12 +300,12 @@ export function DividerAndCTASection() {
               flexShrink: 0,
               position: "relative",
               order: { xs: -1, md: 0 },
+              backgroundColor: IMG_BG,
             }}
           >
             <Box
               component="img"
-              // src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682330/DSC_0896_kz8din.webp"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/v1775381602/StudentPic6_y1rpwz.jpg"
+              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1775381602/StudentPic6_y1rpwz.jpg"
               alt="Classical dance"
               loading="lazy"
               decoding="async"
@@ -313,15 +317,15 @@ export function DividerAndCTASection() {
                 display: "block",
               }}
             />
-            {/* Smudge into bg */}
+            {/* Smudge — rgba so all 4 gradient layers compose correctly */}
             <Box
               sx={{
                 position: "absolute",
                 inset: 0,
                 pointerEvents: "none",
                 background: `
-                  linear-gradient(to right,  ${SMID} 0%, transparent 22%, transparent 78%, ${SMID} 100%),
-                  linear-gradient(to bottom, transparent 0%, transparent 65%, ${S} 100%)
+                  linear-gradient(to right,  ${FADE}1) 0%, ${FADE}0) 30%, ${FADE}0) 70%, ${FADE}1) 100%),
+                  linear-gradient(to bottom, ${FADE}1) 0%, ${FADE}0) 22%, ${FADE}0) 70%, ${FADE}1) 100%)
                 `,
               }}
             />

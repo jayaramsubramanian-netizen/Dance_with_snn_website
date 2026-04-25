@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const EASE = [0.22, 1, 0.36, 1];
 
 const DOCUMENTS = [
@@ -12,38 +12,6 @@ const DOCUMENTS = [
     subtitle: "Guidelines, Policies, Terms and Conditions for Students and Parents",
     tag: "Required",
     sections: [
-      //       {
-      //         heading: "Table of Contents",
-      //         body: `OUR PHILOSOPHY
-      // 1. ENROLLMENT
-      // 2. CLASS PLACEMENT
-      // 3. TUITION
-      // 4. ATTENDANCE POLICY
-      // 5. MAKE-UP CLASS POLICY
-      // 6. TEMPORARY BREAK / LEAVE OF ABSENCE
-      // 7. WITHDRAWAL
-      // 8. CLASS SCHEDULE
-      // 9. COMMUNICATION
-      // 10. WEBSITE AND STUDENT PORTAL
-      // 11. INCLEMENT WEATHER AND CLASS CANCELLATIONS
-      // 12. ONLINE CLASS
-      // 13. DRESS CODE
-      // 14. SALANGAI (ANKLE BELLS)
-      // 15. PRACTICE EXPECTATIONS
-      // 16. CODE OF CONDUCT
-      // 17. CLASS ETIQUETTE AND RESPECT FOR THE DANCE SPACE
-      // 18. PARENT GUIDELINES
-      // 19. LATE PICK-UP
-      // 20. ANNUAL RECITALS AND EVENT PERFORMANCES
-      // 21. COSTUME AND JEWELRY
-      // 22. SALANGAI POOJA / SALANGAI INTRODUCTION CEREMONY
-      // 23. ARANGETRAM (RANGAPRAVESAM)
-      // 24. CERTIFICATION
-      // 25. PHOTOGRAPHY AND MEDIA
-      // 26. LIABILITY AND RISK
-      // 27. ACKNOWLEDGMENT`,
-      //       },
-
       {
         heading: "",
         body: `Welcome to SreeNarthana Natyalaya. Our mission is to nurture students in Bharatanatyam while fostering discipline, respect for the art form, and artistic excellence. This handbook outlines the guidelines, policies and expectations that help maintain a positive and respectful learning environment.`,
@@ -356,7 +324,7 @@ As part of registration, parents/guardians are required to complete a Liability 
         heading: "Acknowledgment",
         body: `Use of the SreeNarthana Natyalaya website is subject to our separate Terms of Service, while enrollment and participation in classes are governed by the terms and conditions explained in this handbook.
 
-By signing this handbook, the parent and student agree to comply with all Natyalaya policies, terms and conditions, and safety guidelines.`,
+By completing the registration sign-off, the parent/guardian and student agree to comply with all Natyalaya policies, terms, conditions, and safety guidelines.`,
       },
     ],
   },
@@ -462,7 +430,7 @@ Phone: +1(630)-750-5272\n
 Effective Date : March 30th 2026`,
       },
       {
-        heading: "22. Interpretation & Effinations",
+        heading: "22. Interpretation & Definations",
         body: `Website : Refers to the SreeNarthana Natyalaya website, including all pages, subdomains, and portals used toprovide information or services.\n
 User: Any person who accesses, registers, or uses the website, including parents/guardians acting on behalf of minors.\n
 Parent/Guardian: A legal guardian or parent responsible for a child under 18 using the website.\n
@@ -620,7 +588,7 @@ Phone: 630-750-5272`,
   {
     id: "consent",
     title: "Parent Consent and Liability Waiver",
-    subtitle: "PARENT CONSENT AND LIABILITY WAIVER",
+    subtitle: "Parent Consent and Liability Waiver",
     tag: "Optional",
     sections: [
       {
@@ -654,30 +622,57 @@ Parents/guardians affirm that the student is physically able to participate in d
       {
         heading: "Parent / Guardian Acknowledgement",
         body: `Participation Consent
-I give permission for my child to participate in classes, rehearsals, performances, and related activities conducted by SreeNarthana Natyalaya.
+Participation in SreeNarthana Natyalaya programs constitutes permission for a child to take part in classes, rehearsals, performances, and related activities.
 
 Online Consent
-I understand that some classes may be conducted online using platforms such as Zoom or Google Meet. I accept responsibility for ensuring a safe environment for my child during online participation.
+It is understood that some classes may be conducted online (eg., via Zoom or Google Meet), and parents or guardians are responsible for ensuring a safe environment for the child during online participation.
 
 Photo & Video Consent
-I give permission for my child to be photographed or recorded during classes and events. I understand these may be used for educational and promotional purposes, including website and social media.
-
-☐ Yes
-☐ No
+Participation constitutes consent for the child to be photographed or recorded during classes and events, with such materials used for educational and promotional purposes, including on websites and social media.
 
 Assumption of Risk
-I understand that dance involves physical activity and there is a risk of minor injuries. I voluntarily allow my child to participate with full knowledge of these risks.
+Dance involves physical activity and carries a risk of minor injury; participation indicates acceptance of these risks.
 
 Medical Responsibility
-I confirm that my child is physically fit to participate. I agree to inform the teacher of any medical conditions, injuries, or limitations.
+Parents or guardians are responsible for ensuring that the child is physically fit to participate and for informing the instructor of any medical conditions, injuries, or limitations.
 
 Liability Waiver
-I release and hold harmless SreeNarthana Natyalaya and its teachers from any liability for injuries, accidents, or loss of personal belongings that may occur during participation.
+Participation releases SreeNarthana Natyalaya and its teachers from liability for injuries, accidents, or loss of personal belongings that may occur during activities.
 
 Emergency Medical Consent
-In case of an emergency, I authorize the teacher to seek medical treatment for my child if I cannot be reached.
+In the event of an emergency, participation authorizes the instructor to seek medical treatment for the child if a parent or guardian cannot be reached.
 
-By signing below, parents or guardians acknowledge that they have read and understood the consents and waiver guidelines of Sreenarthana Natyalaya.`,
+A sign-off by a parent or guardian is required during the registration process to confirm acceptance of these terms.`,
+      },
+    ],
+  },
+  {
+    id: "payment",
+    title: "Payment Terms and Instructions",
+    subtitle: "Payment Terms and Instructions for Students and Parents",
+    tag: "Required",
+    sections: [
+      {
+        heading: "Class Schedule",
+        body: `Classschedulesfor the upcoming monthwill be provided at the end of each month. Allclasseswill followthe ISD academiccalendar . Classes may be scheduled during school holidays based on students availability, with prior notice to parents.`,
+      },
+
+      {
+        heading: "Payment Policy",
+        body: `Full payment for allscheduled classesfor the month isrequired, regardless of student absences. Payment is due on or before the 7th day of each month.Paymentscan be made using one of the following methods:
+● Cash
+● Check payable to “Sreenandini Jayaram”
+● Zelle Transfer - 630-750-5272`,
+      },
+
+      {
+        heading: "Class Cancellations",
+        body: `If a classiscanceled due toweatherconditions or by the instructor, a make-up class will be provided. Parents will receive advance notice of the make-up class date and time. If rescheduling is not possible, the fee for the canceled classwill be applied as a credit towardsthe following month.`,
+      },
+
+      {
+        heading: "Student Absences",
+        body: `If a student is absent for two or more classes within a month, only one missed class will be eligible for a make-up class.`,
       },
     ],
   },
@@ -778,14 +773,13 @@ function DocViewer({ doc, onClose, isMobile }) {
   return (
     <MotionBox
       key={doc.id}
-      initial={{ opacity: 0, x: isMobile ? 0 : 30, y: isMobile ? 20 : 0 }}
+      initial={false}
       animate={{ opacity: 1, x: 0, y: 0 }}
       exit={{ opacity: 0, x: isMobile ? 0 : 30, y: isMobile ? 20 : 0 }}
       transition={{ duration: 0.32, ease: EASE }}
       sx={{
         position: isMobile ? "fixed" : "absolute",
-        /* sits below the navbar — adjust 64px to match your actual navbar height */
-        top: isMobile ? "64px" : 0,
+        top: isMobile ? "72px" : 0,
         left: 0, right: 0, bottom: 0,
         zIndex: isMobile ? 1300 : 2,
         background: "radial-gradient(ellipse at 80% 20%, rgba(124,27,50,0.12) 0%, transparent 55%), #06030A",
@@ -801,7 +795,6 @@ function DocViewer({ doc, onClose, isMobile }) {
         justifyContent: "space-between",
         px: { xs: 3, md: 5 },
         py: { xs: 2, md: 3 },
-        mt: { md: "60px" },
         borderBottom: "0.5px solid rgba(124,27,50,0.2)",
         flexShrink: 0,
         gap: 2,
@@ -891,50 +884,55 @@ export default function PortalComponent() {
   return (
     <Box sx={{
       width: "100vw",
-      minHeight: "100vh",
       display: "flex",
       flexDirection: { xs: "column", md: "row" },
       background: "#06030A",
+      /* Pad inside so content clears the fixed navbar — box still fills full viewport */
+      pt: { xs: "72px", md: "76px" },
       /* Desktop: lock to viewport height; mobile: scroll naturally */
       height: { xs: "auto", md: "100vh" },
+      minHeight: { xs: "100vh", md: "unset" },
       overflow: { xs: "visible", md: "hidden" },
+      boxSizing: "border-box",
     }}>
 
       {/* ══ LEFT 30% — Login ══ */}
       <Box sx={{
-        width: { xs: "100%", md: "30%" },
-        flexShrink: 0,
-        background: `
-          radial-gradient(ellipse at 30% 30%, rgba(124,27,50,0.28) 0%, transparent 60%),
-          radial-gradient(ellipse at 80% 80%, rgba(91,45,142,0.1) 0%, transparent 55%),
-          #06030A
-        `,
-        borderRight: { md: "0.5px solid rgba(124,27,50,0.2)" },
-        borderBottom: { xs: "0.5px solid rgba(124,27,50,0.15)", md: "none" },
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: { xs: "flex-start", md: "center" },
-        px: { xs: 3, md: 5 },
-        pt: { xs: 5, md: 0 },
-        pb: { xs: 5, md: 0 },
-        mt: { xs: "40px" },
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        <Box sx={{ position: "absolute", top: 28, left: 28, opacity: 0.2 }}>
+  width: { xs: "100%", md: "30%" },
+  flexShrink: 0,
+  background: `
+    radial-gradient(ellipse at 30% 30%, rgba(124,27,50,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(91,45,142,0.1) 0%, transparent 55%),
+    #06030A
+  `,
+  borderRight: { md: "0.5px solid rgba(124,27,50,0.2)" },
+  borderBottom: { xs: "0.5px solid rgba(124,27,50,0.15)", md: "none" },
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  /* No justifyContent: center — use margin:auto on child so scroll works on short screens */
+  justifyContent: "flex-start",
+  py: { xs: "40px", md: "5vh" },
+  px: { xs: 3, md: 5 },
+
+  position: "relative",
+  overflowY: "auto",
+  overflowX: "hidden",
+}}>
+        <Box sx={{ position: "absolute", top: 28, left: 28, opacity: 0.2, pointerEvents: "none" }}>
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
             <path d="M2 2 L2 20 M2 2 L20 2" stroke="#7C1B32" strokeWidth="1" strokeLinecap="round" />
           </svg>
         </Box>
-        <Box sx={{ position: "absolute", bottom: 28, right: 28, opacity: 0.2, transform: "rotate(180deg)" }}>
+        <Box sx={{ position: "absolute", bottom: 28, right: 28, opacity: 0.2, transform: "rotate(180deg)", pointerEvents: "none" }}>
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
             <path d="M2 2 L2 20 M2 2 L20 2" stroke="#7C1B32" strokeWidth="1" strokeLinecap="round" />
           </svg>
         </Box>
 
-        <Box sx={{ width: "100%", maxWidth: "320px" }}>
-          <MotionBox initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }} sx={{ mb: 5, textAlign: "center" }}>
+        {/* margin:auto centers vertically when there's space; collapses gracefully when short */}
+        <Box sx={{ width: "100%", maxWidth: "320px", my: "auto" }}>
+          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }} sx={{ mb: 5, textAlign: "center" }}>
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: "1.8rem", color: "#FDE8E0", lineHeight: 1, mb: 0.4 }}>
               Sree Narthana Natyalaya
             </Typography>
@@ -943,7 +941,7 @@ export default function PortalComponent() {
             </Typography>
           </MotionBox>
 
-          <MotionBox initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.15, ease: EASE }} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.15, ease: EASE }} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <Box>
               <Typography sx={labelSx}>Email</Typography>
               <Box component="input" type="email" placeholder="your@email.com" sx={inputSx} />
@@ -994,16 +992,16 @@ export default function PortalComponent() {
           overflowY: { xs: "visible", md: "auto" },
           display: "flex",
           flexDirection: "column",
-          justifyContent: { xs: "flex-start", md: "center" },
+          justifyContent: "flex-start",
           px: { xs: 3, md: 6 },
-          pt: { xs: 5, md: 0 },
-          pb: { xs: 6, md: 0 },
+          pt: { xs: 4, md: 5 },
+          pb: { xs: 6, md: 5 },
           "&::-webkit-scrollbar": { width: "4px" },
           "&::-webkit-scrollbar-track": { background: "transparent" },
           "&::-webkit-scrollbar-thumb": { background: "rgba(124,27,50,0.3)", borderRadius: "4px" },
         }}>
           {/* Header */}
-          <MotionBox initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} sx={{ mb: { xs: 3, md: 4 } }}>
+          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} sx={{ mb: { xs: 3, md: 4 } }}>
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.7rem", md: "2.4rem" }, color: "#FDE8E0", lineHeight: 1.1, mb: 0.8 }}>
               Documents & Policies
             </Typography>
@@ -1015,14 +1013,14 @@ export default function PortalComponent() {
           {/* Cards grid */}
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, gap: { xs: 1.8, md: 2 }, maxWidth: "720px" }}>
             {DOCUMENTS.map((doc, i) => (
-              <MotionBox key={doc.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.1 + i * 0.07, ease: EASE }}>
+              <MotionBox key={doc.id} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.1 + i * 0.07, ease: EASE }}>
                 <DocCard doc={doc} onOpen={setActiveDoc} />
               </MotionBox>
             ))}
           </Box>
 
           {/* Register Now */}
-          <MotionBox initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.45, ease: EASE }} sx={{ mt: { xs: 4, md: 5 }, maxWidth: "720px" }}>
+          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.45, ease: EASE }} sx={{ mt: { xs: 4, md: 5 }, maxWidth: "720px" }}>
             <Box sx={{ height: "0.5px", background: "rgba(124,27,50,0.2)", mb: 3 }} />
 
             <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "flex-start", sm: "center" }, justifyContent: "space-between", gap: 2 }}>

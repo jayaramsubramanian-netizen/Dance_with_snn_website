@@ -2,19 +2,30 @@ import { Box, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 export function Preloader() {
+  // Start as false so SSR renders nothing — avoids hydration mismatch.
+  // Client sets it to true on first paint, then hides it on window load.
+  const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    // Show the preloader only on the client after first paint
+    setMounted(true);
 
-    return () => clearTimeout(timer);
+    const hide = () => setIsLoading(false);
+    if (document.readyState === 'complete') {
+      hide();
+    } else {
+      window.addEventListener('load', hide, { once: true });
+      return () => window.removeEventListener('load', hide);
+    }
   }, []);
+
+  // Render nothing during SSR (or before first client paint)
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -49,12 +60,12 @@ export function Preloader() {
           >
             {/* Logo */}
             <MotionBox
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <MotionTypography
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 sx={{
@@ -79,7 +90,7 @@ export function Preloader() {
 
             {/* Loading dots */}
             <MotionBox
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               sx={{
@@ -114,7 +125,7 @@ export function Preloader() {
 
             {/* Tagline */}
             <MotionTypography
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
               sx={{

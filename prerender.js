@@ -153,6 +153,12 @@ async function main() {
     // 2. Inject critical MUI/emotion CSS (prevents CLS — Core Web Vitals)
     html = html.replace('<!--emotion-styles-->', emotionStyleTags || '');
 
+    // 2b. Inject LCP preload only on the home page (hero image only exists there)
+    const heroPreload = url === '/'
+      ? '<link rel="preload" as="image" type="image/webp" href="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683883/StudentPic4_yi3k2b.webp" fetchpriority="high" />'
+      : '';
+    html = html.replace('<!--hero-preload-->', heroPreload);
+
     // 3. Inject correct per-page meta tags
     if (meta) {
       html = injectMeta(html, meta);

@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 
 import emailjs from "emailjs-com";
 
-const MotionBox = motion(Box);
-const MotionTypo = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypo = motion.create(Typography);
 
 /* ── Palette ─────────────────────────────────── */
 const C = {
@@ -62,7 +62,7 @@ const fieldSx = {
 /* ── Animated rule ───────────────────────────── */
 const Rule = ({ delay = 0, light = false }) => (
   <MotionBox
-    initial={{ scaleX: 0, opacity: 0 }}
+    initial={false}
     animate={{ scaleX: 1, opacity: 1 }}
     transition={{ duration: 0.55, delay, ease: EASE }}
     sx={{ display: "flex", alignItems: "center", gap: 1.2, transformOrigin: "left", mt: 1.5 }}
@@ -81,7 +81,7 @@ const Rule = ({ delay = 0, light = false }) => (
 const FieldLabel = ({ htmlFor, children, delay = 0 }) => (
   <MotionBox
     component="label" htmlFor={htmlFor}
-    initial={{ opacity: 0, y: 6 }}
+    initial={false}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.38, delay, ease: EASE }}
     sx={{
@@ -194,7 +194,7 @@ export default function ContactSection() {
 
       {/* ══ PANEL 1 — Contact info ══════════════════ */}
       <MotionBox
-        initial={{ x: -60, opacity: 0 }}
+        initial={false}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.72, ease: EASE }}
         sx={{
@@ -361,7 +361,7 @@ export default function ContactSection() {
 
       {/* ══ PANEL 2 — Form ══════════════════════════ */}
       <MotionBox
-        initial={{ y: 50, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.72, delay: 0.15, ease: EASE }}
         sx={{
@@ -496,7 +496,7 @@ export default function ContactSection() {
        *  Desktop : right column, fills full panel height
        */}
       <MotionBox
-        initial={{ x: 50, opacity: 0 }}
+        initial={false}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.72, delay: 0.3, ease: EASE }}
         sx={{
@@ -513,9 +513,9 @@ export default function ContactSection() {
       >
         <MotionBox
           component="img"
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774683394/DSC_0899_jdfoon.webp"
+          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_900/v1774683394/DSC_0899_jdfoon.webp"
           alt="Narthana Dance School"
-          initial={{ scale: 1.07 }}
+          initial={false}
           animate={{ scale: 1 }}
           transition={{ duration: 1.3, delay: 0.3, ease: EASE }}
           sx={{

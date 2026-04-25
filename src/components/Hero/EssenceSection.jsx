@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Heart, Award, Users, Sparkles } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const THEMES = [
   { color: "#7C1B32", rgb: "124,27,50", stripe: "#FF8FA3" },
@@ -66,8 +66,9 @@ export function EssenceSection() {
       >
         <Box
           component="img"
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774703089/essence_kzpsjr.jpg"
+          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1200/v1774703089/essence_kzpsjr.jpg"
           alt="Bharatanatyam"
+          loading="lazy"
           sx={{
             width: "100%",
             height: "100%",
@@ -123,7 +124,8 @@ export function EssenceSection() {
           <Typography
             sx={{
               fontFamily: "'Berkshire Swash', cursive",
-              fontSize: { xs: "2.8rem", sm: "3.5rem", md: "4rem" },
+              fontSize: { xs: "2rem", sm: "3.5rem", md: "4rem" },
+              fontWeight: 800,
               color: "#FDE8E0",
               mb: 1,
             }}

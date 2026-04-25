@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
 
 export default function FounderSection() {
   return (
@@ -81,8 +81,9 @@ export default function FounderSection() {
               <Box
                 component="img"
                 // src="https://images.unsplash.com/photo-1740456777764-9da56b9f618c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaGFyYXRhbmF0eWFtJTIwY29zdHVtZSUyMGpld2VscnklMjBvcm5hbWVudHN8ZW58MXx8fHwxNzY5OTIwNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                src="https://res.cloudinary.com/dtovj9rds/image/upload/v1774682832/Nandini_1_accq6d.webp"
+                src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774682832/Nandini_1_accq6d.webp"
                 alt="Sreenandini Jayaram"
+                loading="lazy"
                 sx={{
                   width: "100%",
                   height: "100%",
@@ -112,7 +113,7 @@ export default function FounderSection() {
               sx={{
                 fontFamily: "'Berkshire Swash', cursive",
                 fontSize: { xs: "2.5rem", md: "3.25rem" },
-                fontWeight: 600,
+                fontWeight: 800,
                 color: "#FFF5F2",
                 mb: 4,
                 lineHeight: 1.2,

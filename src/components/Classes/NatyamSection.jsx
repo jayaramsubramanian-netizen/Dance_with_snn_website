@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import AnimatedDivider from "../AnimatedDivider";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 /* ── Three theme colors ── */
 const ACCENTS = [
@@ -211,11 +211,11 @@ export default function NatyamSection() {
   const [activeCard, setActiveCard] = useState(null);
 
   const features = [
-    { title: "Passionate Teaching",  description: "Led by Tradition, Inspired by Passion Learn Bharatanatyam under a passionate Guru, trained by renowned masters, blending classical lineage with dedicated mentorship.",    image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774683850/StudentPic1_pznlfm.webp" },
-    { title: "Small Group Batches",  description: "Carefully curated small batches provide individualized attention, allowing each student to refine technique, expression, and stage presence.",          image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703759/student2_zoe5lr.jpg" },
-    { title: "One-on-One Sessions",  description: "Personalized individual sessions to refine performance and expression, supporting mastery in every aspect of dance.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703763/student4_fjnodc.jpg" },
-    { title: "Interactive Learning", description: "Fun and engaging teaching methods that make learning enjoyable for young dancers.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774703762/student3_fgst4j.jpg" },
-    { title: "Periodic Evaluations", description: "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/v1774704095/student5_b6mlme.jpg" },
+    { title: "Passionate Teaching",  description: "Led by Tradition, Inspired by Passion Learn Bharatanatyam under a passionate Guru, trained by renowned masters, blending classical lineage with dedicated mentorship.",    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774683850/StudentPic1_pznlfm.webp" },
+    { title: "Small Group Batches",  description: "Carefully curated small batches provide individualized attention, allowing each student to refine technique, expression, and stage presence.",          image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703759/student2_zoe5lr.jpg" },
+    { title: "One-on-One Sessions",  description: "Personalized individual sessions to refine performance and expression, supporting mastery in every aspect of dance.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703763/student4_fjnodc.jpg" },
+    { title: "Interactive Learning", description: "Fun and engaging teaching methods that make learning enjoyable for young dancers.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703762/student3_fgst4j.jpg" },
+    { title: "Periodic Evaluations", description: "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774704095/student5_b6mlme.jpg" },
   ];
 
   const handleClick = (i) => setActiveCard(activeCard === i ? null : i);
@@ -271,7 +271,7 @@ export default function NatyamSection() {
           <Typography component="h2" sx={{
             fontFamily: "'Berkshire Swash', cursive",
             fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.3rem" },
-            color: "#FDE8E0", fontWeight: 400,
+            color: "#FDE8E0", fontWeight: 800,
             letterSpacing: "0.03em",
             textShadow: "0 4px 24px rgba(124,27,50,0.45)",
             mb: 1.5, lineHeight: 1.15,
