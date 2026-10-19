@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Heart, Award, Users, Sparkles } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
@@ -13,29 +14,27 @@ const THEMES = [
 ];
 
 export function EssenceSection() {
+  const { t, img } = useContent();
   const values = [
     {
       icon: Heart,
-      title: "Passion & Dedication",
-      description:
-        "Cultivating a deep love for the art form through disciplined practice",
+      title: t('home.essence.p1.title'),
+      description: t('home.essence.p1.text'),
     },
     {
       icon: Award,
-      title: "Excellence",
-      description:
-        "Striving for mastery in technique, expression, and performance",
+      title: t('home.essence.p2.title'),
+      description: t('home.essence.p2.text'),
     },
     {
       icon: Users,
-      title: "Community",
-      description: "Building a supportive family of artists and art lovers",
+      title: t('home.essence.p3.title'),
+      description: t('home.essence.p3.text'),
     },
     {
       icon: Sparkles,
-      title: "Tradition & Innovation",
-      description:
-        "Honoring classical roots while embracing contemporary expression",
+      title: t('home.essence.p4.title'),
+      description: t('home.essence.p4.text'),
     },
   ];
 
@@ -66,8 +65,8 @@ export function EssenceSection() {
       >
         <Box
           component="img"
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1200/v1774703089/essence_kzpsjr.jpg"
-          alt="Bharatanatyam"
+          src={img('home.essence.image').src}
+          alt={img('home.essence.image').alt}
           loading="lazy"
           sx={{
             width: "100%",
@@ -130,7 +129,7 @@ export function EssenceSection() {
               mb: 1,
             }}
           >
-            Nātya Sāra
+            {t('home.essence.eyebrow')}
           </Typography>
 
           <Typography
@@ -142,7 +141,7 @@ export function EssenceSection() {
               mb: 2,
             }}
           >
-            Our Essence
+            {t('home.essence.title')}
           </Typography>
 
           <Typography
@@ -153,8 +152,7 @@ export function EssenceSection() {
               lineHeight: 1.7,
             }}
           >
-            Our philosophy is built upon four foundational pillars where
-            Tradition, Expression, and Grace Unite
+            <Rich k="home.essence.intro" />
           </Typography>
         </Box>
 

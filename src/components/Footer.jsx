@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FooterBottom } from "../components/FooterBottom";
+import { useContent } from '../content/ContentContext.jsx';
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -11,10 +12,11 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
-const contactInfo = [
-  { icon: MapPin, text: "27938 Robinson Park Dr, Spring TX 77386", isAddress: true },
-  { icon: Phone, text: "+1 (630) 750-5272", href: "tel:+16307505272" },
-  { icon: Mail, text: "info@dancewithsnn.com", href: "mailto:info@dancewithsnn.com" },
+// Address, phone and email are editable in admin → Website → Site-wide
+const buildContactInfo = (t) => [
+  { icon: MapPin, text: t("footer.address"), isAddress: true },
+  { icon: Phone, text: t("footer.phone"), href: `tel:${t("footer.phone").replace(/[^+\d]/g, "")}` },
+  { icon: Mail, text: t("footer.email"), href: `mailto:${t("footer.email")}` },
 ];
 
 // SVG icons inlined to avoid deprecated lucide-react social icon names
@@ -71,6 +73,8 @@ const linkStyle = {
 };
 
 export function Footer() {
+  const { t, img } = useContent();
+  const contactInfo = buildContactInfo(t);
   return (
     <Box
       component="footer"
@@ -124,8 +128,8 @@ export function Footer() {
           <Box>
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_300/v1774683040/SNN_TEXT_p4wyx2.webp"
-              alt="Sree Narthana Natyalaya"
+              src={img("site.logo").src}
+              alt={img("site.logo").alt}
               sx={{
                 width: { xs: "200px", md: "230px" },
                 mb: 2.5,
@@ -143,8 +147,7 @@ export function Footer() {
                 mb: 4,
               }}
             >
-              Dance with your heart and with every step unfolds a story of
-              passion. Classical Bharatanatyam in Spring, Texas.
+              {t("footer.tagline")}
             </Typography>
 
             {/* Social icons */}

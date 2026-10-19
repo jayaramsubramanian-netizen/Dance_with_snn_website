@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
@@ -14,6 +15,7 @@ const IMG_BG = "#0f0408";   /* image container bg — must match BG exactly */
 const FADE = "rgba(15,4,8,";  /* rgba version of #0f0408 for gradient stops */
 
 export function DividerAndCTASection() {
+  const { t, img } = useContent();
   return (
     <Box
       sx={{
@@ -77,8 +79,8 @@ export function DividerAndCTASection() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774682332/DSC_1096_go4ujt.webp"
-              alt="Classical dance mudra"
+              src={img('home.gesture.image').src}
+              alt={img('home.gesture.image').alt}
               loading="lazy"
               sx={{
                 width: "100%",
@@ -130,7 +132,7 @@ export function DividerAndCTASection() {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                Every Gesture Speaks a Tale
+                {t('home.gesture.title')}
               </Typography>
 
               <Box
@@ -153,9 +155,7 @@ export function DividerAndCTASection() {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                In every mudra, every rhythm, and every expression, a story
-                unfolds — connecting performer and audience through the universal
-                language of movement and emotion.
+                <Rich k="home.gesture.body" />
               </Typography>
             </Box>
           </MotionBox>
@@ -225,7 +225,7 @@ export function DividerAndCTASection() {
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                Begin Your Journey with Us
+                {t('home.journey.title')}
               </MotionTypography>
 
               <Box
@@ -248,12 +248,7 @@ export function DividerAndCTASection() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              Step into a world of rhythm, expression, and grace. Join our vibrant
-              community and discover the transformative power of Bharatanatyam in
-              an environment dedicated to excellence and tradition.
-              <br /><br />
-              Whether beginning your first steps or refining advanced technique,
-              your artistic journey begins here.
+              <Rich k="home.journey.body" />
             </MotionTypography>
 
             <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" } }}>
@@ -283,7 +278,7 @@ export function DividerAndCTASection() {
                   },
                 }}
               >
-                Register Today
+                {t('home.journey.button')}
               </Box>
             </Box>
           </MotionBox>
@@ -305,8 +300,8 @@ export function DividerAndCTASection() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1775381602/StudentPic6_y1rpwz.jpg"
-              alt="Classical dance"
+              src={img('home.journey.image').src}
+              alt={img('home.journey.image').alt}
               loading="lazy"
               decoding="async"
               sx={{
