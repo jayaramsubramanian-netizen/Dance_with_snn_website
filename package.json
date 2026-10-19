@@ -17,7 +17,6 @@
     "@mui/material": "^7.3.7",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^6.1.8",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",

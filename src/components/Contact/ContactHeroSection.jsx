@@ -4,7 +4,6 @@ import { motion, useAnimation } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CalendarClock } from "lucide-react";
 import { useState, useEffect } from "react";
 
-import emailjs from "emailjs-com";
 
 const MotionBox = motion.create(Box);
 const MotionTypo = motion.create(Typography);
@@ -102,6 +101,11 @@ export default function ContactSection() {
   const [sent, setSent] = useState(false);
   const btnCtrl = useAnimation();
   const [openPopup, setOpenPopup] = useState(false);
+  // Form delivery: posts to the portal, which emails info@dancewithsnn.com.
+  const [sending, setSending] = useState(false);
+  const [popup, setPopup] = useState({ severity: "info", text: "Message sent successfully!" });
+  const [startedAt] = useState(() => Date.now());   // spam filter: bots submit instantly
+  const [website, setWebsite] = useState("");         // spam filter: hidden field people never fill
 
   const contactInfo = [
     { icon: Mail, title: "Email Us", value: "info@dancewithsnn.com", link: "mailto:info@dancewithsnn.com" },
@@ -122,44 +126,37 @@ export default function ContactSection() {
     });
   }, [btnCtrl]);
 
-  const handleSubmit = (e) => {
-  e.preventDefault();
+  const CONTACT_ENDPOINT = "https://portal.dancewithsnn.com/portal/api/contact";
 
-  const templateParams = {
-    name: formData.name,
-    email: formData.email,
-    title: formData.phone,
-    message: formData.message,
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website, startedAt }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || "send failed");
+
+      setSent(true);
+      setPopup({ severity: "info", text: "Message sent successfully! We'll get back to you soon." });
+      setOpenPopup(true);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      setPopup({
+        severity: "error",
+        text: err?.message && err.message !== "send failed" && err.message !== "Failed to fetch"
+          ? err.message
+          : "Sorry, your message could not be sent. Please email info@dancewithsnn.com.",
+      });
+      setOpenPopup(true);
+    } finally {
+      setSending(false);
+    }
   };
-
-  emailjs
-    .send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,   // 🔴 replace
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  // 🔴 replace
-      templateParams,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY    // 🔴 replace
-    )
-    .then(
-      (result) => {
-        console.log("SUCCESS:", result.text);
-
-        setSent(true);
-        setOpenPopup(true);
-
-        // reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-      },
-      (error) => {
-        console.log("FAILED:", error.text);
-        alert("Something went wrong. Please try again.");
-      }
-    );
-};
 
   const cardVariants = {
     hidden: { opacity: 0, y: 14, scale: 0.97 },
@@ -415,6 +412,12 @@ export default function ContactSection() {
             onSubmit={handleSubmit}
             sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.9, md: 2.1 } }}
           >
+            {/* Spam trap — hidden from people and screen readers; bots fill it in */}
+            <Box aria-hidden="true" sx={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+              <label htmlFor="website">Leave this empty</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off"
+                value={website} onChange={(e) => setWebsite(e.target.value)} />
+            </Box>
             {/* Name + Email */}
             <MotionBox
               custom={0} variants={fieldVariants} initial="hidden" animate="visible"
@@ -450,6 +453,7 @@ export default function ContactSection() {
               <MotionBox animate={btnCtrl}>
                 <Button
                   type="submit"
+                  disabled={sending}
                   fullWidth
                   endIcon={
                     <MotionBox
@@ -481,7 +485,7 @@ export default function ContactSection() {
                     },
                   }}
                 >
-                  {sent ? "Message Sent!" : "Send Message"}
+                  {sending ? "Sending…" : sent ? "Message Sent!" : "Send Message"}
                 </Button>
               </MotionBox>
             </MotionBox>
@@ -566,13 +570,13 @@ export default function ContactSection() {
       {/* ✅ SNACKBAR GOES HERE */}
       <Snackbar
         open={openPopup}
-        autoHideDuration={4000}
+        autoHideDuration={popup.severity === "error" ? 9000 : 4000}
         onClose={() => setOpenPopup(false)}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
         <Alert
           onClose={() => setOpenPopup(false)}
-          severity="info"
+          severity={popup.severity}
           sx={{
             background: "#0D1017",
             color: "#F0EAE0",
@@ -581,8 +585,7 @@ export default function ContactSection() {
             backdropFilter: "blur(6px)",
           }}
         >
-          {/* This feature is under construction. Please use "Email Us" above. */}
-          Message sent successfully!
+          {popup.text}
         </Alert>
       </Snackbar>
 
