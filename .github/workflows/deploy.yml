@@ -4,6 +4,10 @@
 #   • main changes (merge a pull request)
 #   • you press "Run workflow" on the Actions tab
 #   • the portal's admin "Publish website" button asks for it (repository_dispatch)
+#   • once a day, so finished events move from "Upcoming" to "Past"
+#
+# The build reads published events from the portal. If the portal can't be
+# reached, the build stops and the site already online stays as it is.
 #
 # Needs these repository secrets (Settings → Secrets and variables → Actions):
 #   HOSTINGER_HOST      server address from hPanel → Advanced → SSH Access
@@ -20,6 +24,9 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [publish-site]
+  schedule:
+    # daily at 5:17 am Central (10:17 UTC): moves finished events to "Past"
+    - cron: '17 10 * * *'
 
 concurrency:
   group: deploy-website

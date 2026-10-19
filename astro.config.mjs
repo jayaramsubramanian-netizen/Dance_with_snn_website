@@ -3,7 +3,6 @@
 // uploaded to Hostinger. No server, no logins, no student data on this site.
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'node:url';
 
@@ -14,7 +13,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'directory' },      // /about → about/index.html (matches .htaccess)
-  integrations: [react(), sitemap()],
+  integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
