@@ -1,0 +1,91 @@
+---
+// src/layouts/SiteLayout.astro — shared shell for every public page.
+// Head content mirrors the previous site exactly (same titles, descriptions,
+// canonicals, Open Graph and structured data) so search rankings carry over.
+import '../App.css';
+import Navigation from '../islands/Navigation.jsx';
+import PreloaderOnce from '../islands/PreloaderOnce.jsx';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle: string;
+  path: string;            // '/', '/about', …
+  heroPreload?: string;    // LCP image to preload (home only)
+}
+const { title, description, ogTitle, path, heroPreload } = Astro.props;
+const canonical = path === '/' ? 'https://dancewithsnn.com/' : `https://dancewithsnn.com${path}`;
+const ogUrl = canonical;
+
+// Lets the shared Navigation component know which page it is on while
+// Astro renders it at build time (see src/shims/react-router-dom.jsx).
+globalThis.__SNN_PATH__ = path;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/Logo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/Logo.png" />
+  <link rel="shortcut icon" href="/Logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Logo.png" />
+  <link rel="manifest" href="/manifest.json" />
+  {heroPreload && <link rel="preload" as="image" type="image/webp" href={heroPreload} fetchpriority="high" />}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas" />
+  <meta name="author" content="Sree Narthana Natyalaya" />
+  <meta property="og:site_name" content="Sree Narthana Natyalaya" />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://dancewithsnn.com/Logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:url" content={ogUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sree Narthana Natyalaya | Bharatanatyam Classes in Texas" />
+  <meta name="twitter:description" content="Bharatanatyam classes in Texas by Guru Shree Nandini." />
+  <meta name="twitter:image" content="https://dancewithsnn.com/Logo.png" />
+  <link rel="canonical" href={canonical} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org", "@type": "WebSite",
+    "name": "Sree Narthana Natyalaya", "alternateName": "Dance With SNN", "url": "https://dancewithsnn.com"
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org", "@type": "DanceSchool",
+    "name": "Sree Narthana Natyalaya", "alternateName": "Dance With SNN", "url": "https://dancewithsnn.com",
+    "logo": { "@type": "ImageObject", "url": "https://dancewithsnn.com/Logo.png" },
+    "image": "https://dancewithsnn.com/Logo.png",
+    "description": "Bharatanatyam classical dance school in Spring, Texas offering training for beginners, kids, and advanced students under Guru Shree Nandini.",
+    "address": { "@type": "PostalAddress", "streetAddress": "27938 Robinson Park Dr", "addressLocality": "Spring", "addressRegion": "TX", "postalCode": "77386", "addressCountry": "US" },
+    "telephone": "+16307505272",
+    "founder": { "@type": "Person", "name": "Shree Nandini" },
+    "sameAs": ["https://www.instagram.com/dancewithsnn", "https://www.facebook.com/dancewithsnn"]
+  })} />
+
+  <style is:global>
+    html, body { margin: 0; background: #010101; color: #FDE8E0; }
+    /* Pages draw behind the translucent fixed navbar — each section's own
+       top padding leaves room for it (same as the previous site). */
+  </style>
+</head>
+<body>
+  <PreloaderOnce client:load />
+  <Navigation client:load />
+  <main>
+    <slot />
+  </main>
+
+  <!-- Same as before: right-click disabled site-wide -->
+  <script is:inline>document.addEventListener('contextmenu', function (e) { e.preventDefault(); });</script>
+</body>
+</html>

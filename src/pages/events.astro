@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Events from '../islands/Events.jsx';
+---
+<SiteLayout
+  path="/events"
+  title={"Events & Performances | Sree Narthana Natyalaya | Bharatanatyam Events Texas"}
+  description="Explore Bharatanatyam performances and cultural events by Sree Narthana Natyalaya in Texas. Stay updated with recitals and showcases."
+  ogTitle="Bharatanatyam Events | Sree Narthana Natyalaya Texas">
+  <Events client:load />
+</SiteLayout>

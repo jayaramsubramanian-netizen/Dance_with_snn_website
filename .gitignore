@@ -28,3 +28,6 @@ package-lock.json
 *.sw?
 
 .env
+# Astro
+.astro/
+dist/
