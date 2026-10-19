@@ -28,3 +28,10 @@ package-lock.json
 *.sw?
 
 .env
+# Astro
+.astro/
+dist/
+
+# Downloaded at build time from the portal (scripts/fetch-events.mjs)
+src/data/events.json
+public/event-media/

@@ -1,0 +1,26 @@
+---
+import fs from 'node:fs';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Events from '../islands/Events.jsx';
+
+// Events published from the portal admin, copied in by scripts/fetch-events.mjs
+// before the build. Missing file (offline build) → page shows as before.
+let feed = { generatedAt: null, events: [] };
+try { feed = JSON.parse(fs.readFileSync('src/data/events.json', 'utf8')); } catch {}
+
+// "Upcoming" is decided when the site is built; a daily scheduled rebuild
+// moves finished events into "Past Performances".
+const now = Date.now();
+const endOf = (e) => new Date(e.endDate ?? e.eventDate).getTime();
+const upcoming = feed.events.filter((e) => endOf(e) >= now)
+  .sort((a, b) => +new Date(a.eventDate) - +new Date(b.eventDate));
+const past = feed.events.filter((e) => endOf(e) < now)
+  .sort((a, b) => +new Date(b.eventDate) - +new Date(a.eventDate));
+---
+<SiteLayout
+  path="/events"
+  title={"Events & Performances | Sree Narthana Natyalaya | Bharatanatyam Events Texas"}
+  description="Explore Bharatanatyam performances and cultural events by Sree Narthana Natyalaya in Texas. Stay updated with recitals and showcases."
+  ogTitle="Bharatanatyam Events | Sree Narthana Natyalaya Texas">
+  <Events client:load upcoming={upcoming} past={past} />
+</SiteLayout>

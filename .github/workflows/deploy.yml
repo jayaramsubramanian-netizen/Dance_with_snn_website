@@ -1,0 +1,72 @@
+# Builds the website and uploads it to Hostinger.
+#
+# Runs when:
+#   • main changes (merge a pull request)
+#   • you press "Run workflow" on the Actions tab
+#   • the portal's admin "Publish website" button asks for it (repository_dispatch)
+#   • once a day, so finished events move from "Upcoming" to "Past"
+#
+# The build reads published events from the portal. If the portal can't be
+# reached, the build stops and the site already online stays as it is.
+#
+# Needs these repository secrets (Settings → Secrets and variables → Actions):
+#   HOSTINGER_HOST      server address from hPanel → Advanced → SSH Access
+#   HOSTINGER_PORT      SSH port (Hostinger uses 65002)
+#   HOSTINGER_USER      SSH username (u1234567…)
+#   HOSTINGER_SSH_KEY   private key whose public half is added in hPanel
+#   HOSTINGER_PATH      e.g. domains/dancewithsnn.com/public_html
+# Until they exist, the site is built (to catch errors) but not uploaded.
+name: Build & deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [publish-site]
+  schedule:
+    # daily at 5:17 am Central (10:17 UTC): moves finished events to "Past"
+    - cron: '17 10 * * *'
+
+concurrency:
+  group: deploy-website
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOST: ${{ secrets.HOSTINGER_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload to Hostinger
+        if: env.HOST != ''
+        env:
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          USER: ${{ secrets.HOSTINGER_USER }}
+          KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          DEST: ${{ secrets.HOSTINGER_PATH }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "${PORT:-65002}" "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # No --delete: older files stay until removed by hand, so nothing
+          # unrelated in public_html is ever wiped by a deploy.
+          rsync -rltvz --chmod=D755,F644 \
+            -e "ssh -i ~/.ssh/deploy_key -p ${PORT:-65002}" \
+            dist/ "$USER@$HOST:${DEST%/}/"
+
+      - name: Not uploaded yet
+        if: env.HOST == ''
+        run: echo "::notice::Built OK. Add the HOSTINGER_* secrets to enable uploading."

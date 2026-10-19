@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Home from '../islands/Home.jsx';
+---
+<SiteLayout
+  path="/"
+  title="Sree Narthana Natyalaya | Bharatanatyam Classes in Texas | Dance With SNN"
+  description="Join Sree Narthana Natyalaya for Bharatanatyam classes in Texas. Learn Indian classical dance under Guru Shree Nandini. Classes for beginners, kids, and advanced students."
+  ogTitle="Sree Narthana Natyalaya | Bharatanatyam Classes in Texas"
+  heroPreload="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683883/StudentPic4_yi3k2b.webp">
+  <Home client:load />
+</SiteLayout>

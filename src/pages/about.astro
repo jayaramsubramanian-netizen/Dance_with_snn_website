@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import About from '../islands/About.jsx';
+---
+<SiteLayout
+  path="/about"
+  title="About Sree Narthana Natyalaya | Bharatanatyam School in Texas"
+  description="Learn about Sree Narthana Natyalaya, a Bharatanatyam dance school in Spring, Texas led by Guru Shree Nandini."
+  ogTitle="About Sree Narthana Natyalaya | Bharatanatyam School Texas">
+  <About client:load />
+</SiteLayout>

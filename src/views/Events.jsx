@@ -7,8 +7,9 @@ import EventsHeroSection from "../components/Events/EventsHeroSection";
 import { Footer } from "../components/Footer";
 import { FooterBottom } from "../components/FooterBottom";
 import ComingSoon from "../components/ComingSoon";
+import EventsFeed from "../components/Events/EventsFeed";
 
-export default function Events() {
+export default function Events({ upcoming = [], past = [] }) {
   return (
     <>
       {/* ✅ SEO */}
@@ -61,6 +62,8 @@ export default function Events() {
 
       {/* UI */}
       <EventsHeroSection />
+      {/* Events published from the portal admin (empty → page looks as before) */}
+      <EventsFeed upcoming={upcoming} past={past} />
       {/* <GallerySection />
       <UpcomingEventsSection />
       <Footer /> */}
