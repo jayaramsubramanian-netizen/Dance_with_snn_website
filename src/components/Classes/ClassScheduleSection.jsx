@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion, useReducedMotion } from "framer-motion";
 import { Clock } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
@@ -90,7 +91,7 @@ function ScheduleCard({ item }) {
       <Box
         component="img"
         src={item.image}
-        alt={item.day}
+        alt={item.alt || item.day}
         loading="lazy"
         decoding="async"
         sx={{
@@ -199,6 +200,16 @@ function ScheduleCard({ item }) {
 }
 
 export default function ClassScheduleSection() {
+  const { t, img } = useContent();
+  const schedule = [1, 2, 3, 4, 5, 6]
+    .map((i) => ({
+      day: t(`classes.schedule.d${i}.day`),
+      times: t(`classes.schedule.d${i}.times`).split('\n').map((s) => s.trim()).filter(Boolean),
+      image: img(`classes.schedule.d${i}.image`).src,
+      alt: img(`classes.schedule.d${i}.image`).alt,
+      theme: (SCHEDULE[i - 1]?.theme ?? i - 1) % THEMES.length,
+    }))
+    .filter((d) => d.day.trim());
   return (
     <Box
       component="section"
@@ -238,7 +249,7 @@ export default function ClassScheduleSection() {
               mb: 1.2,
             }}
           >
-            Class Schedule
+            {t('classes.schedule.title')}
           </Typography>
 
           <Typography
@@ -251,7 +262,7 @@ export default function ClassScheduleSection() {
               lineHeight: 1.75,
             }}
           >
-            Regular weekly classes to build your skills
+            {t('classes.schedule.subtitle')}
           </Typography>
         </MotionBox>
 
@@ -277,7 +288,7 @@ export default function ClassScheduleSection() {
             gap: { xs: 2.5, md: 3 },
           }}
         >
-          {SCHEDULE.map((item) => (
+          {schedule.map((item) => (
             <ScheduleCard key={item.day} item={item} />
           ))}
         </MotionBox>

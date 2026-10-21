@@ -1,15 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
 export default function CommunityImpactSection() {
-  const stats = [
-    { number: "27", label: "Students Trained" },
-    { number: "20+", label: "Years of Excellence" },
-    { number: "50+", label: "Performances" },
-    { number: "15+", label: "Awards Won" },
-  ];
+  const { t, img } = useContent();
+  const stats = [1, 2, 3, 4]
+    .map((i) => ({ number: t(`about.impact.s${i}.number`), label: t(`about.impact.s${i}.label`) }))
+    .filter((s) => s.number.trim() || s.label.trim());
 
   return (
     <Box
@@ -32,8 +31,8 @@ export default function CommunityImpactSection() {
       >
         <Box
           component="img"
-          src="https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-          alt="Dance background"
+          src={img('about.impact.image').src}
+          alt={img('about.impact.image').alt}
           loading="lazy"
           sx={{
             width: "100%",
@@ -131,7 +130,7 @@ export default function CommunityImpactSection() {
               mb: 3,
             }}
           >
-            Our Impact
+            {t('about.impact.title')}
           </Typography>
 
           {/* Decorative line below heading */}

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const EASE = [0.22, 1, 0.36, 1];
@@ -879,6 +880,7 @@ function DocViewer({ doc, onClose, isMobile }) {
    MAIN
 ══════════════════════════════════════ */
 export default function PortalComponent() {
+  const { t, img } = useContent();
   const [activeDoc, setActiveDoc] = useState(null);
 
   return (
@@ -934,10 +936,10 @@ export default function PortalComponent() {
         <Box sx={{ width: "100%", maxWidth: "320px", my: "auto" }}>
           <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }} sx={{ mb: 5, textAlign: "center" }}>
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: "1.8rem", color: "#FDE8E0", lineHeight: 1, mb: 0.4 }}>
-              Sree Narthana Natyalaya
+              {t('portal.side.title')}
             </Typography>
             <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.72rem", color: "#E94B6E", letterSpacing: "0.16em", textTransform: "uppercase" }}>
-              Student Portal
+              {t('portal.side.subtitle')}
             </Typography>
           </MotionBox>
 
@@ -1003,10 +1005,10 @@ export default function PortalComponent() {
           {/* Header */}
           <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} sx={{ mb: { xs: 3, md: 4 } }}>
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.7rem", md: "2.4rem" }, color: "#FDE8E0", lineHeight: 1.1, mb: 0.8 }}>
-              Documents & Policies
+              {t('portal.docs.title')}
             </Typography>
             <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.85rem", color: "rgba(253,232,224,0.38)", lineHeight: 1.6, maxWidth: "420px" }}>
-              Please review and acknowledge all required documents before completing your enrollment.
+              {t('portal.docs.text')}
             </Typography>
           </MotionBox>
 
@@ -1026,16 +1028,16 @@ export default function PortalComponent() {
             <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "flex-start", sm: "center" }, justifyContent: "space-between", gap: 2 }}>
               <Box>
                 <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.05rem", md: "1.2rem" }, color: "#FDE8E0", mb: 0.3 }}>
-                  Ready to Join?
+                  {t('portal.join.title')}
                 </Typography>
                 <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.78rem", color: "rgba(253,232,224,0.32)", lineHeight: 1.5 }}>
-                  Complete your enrollment by registering below.
+                  {t('portal.join.text')}
                 </Typography>
               </Box>
 
               <Box
                 component="a"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfkF11rllSLF2jAGpF_Q8mfBgMvAhZKEEqlaGY52lGvHjLiZg/viewform?usp=sharing&ouid=117175852009957048619"   // ← put your real link here
+                href={t('portal.join.link')}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -1058,7 +1060,7 @@ export default function PortalComponent() {
                   "&:active": { transform: "scale(0.97)" },
                 }}
               >
-                Register Now →
+                {t('portal.join.button')}
               </Box>
             </Box>
           </MotionBox>

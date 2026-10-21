@@ -1,11 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 export default function FounderSection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -81,8 +83,8 @@ export default function FounderSection() {
               <Box
                 component="img"
                 // src="https://images.unsplash.com/photo-1740456777764-9da56b9f618c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaGFyYXRhbmF0eWFtJTIwY29zdHVtZSUyMGpld2VscnklMjBvcm5hbWVudHN8ZW58MXx8fHwxNzY5OTIwNDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774682832/Nandini_1_accq6d.webp"
-                alt="Sreenandini Jayaram"
+                src={img('about.founder.image').src}
+                alt={img('about.founder.image').alt}
                 loading="lazy"
                 sx={{
                   width: "100%",
@@ -121,7 +123,7 @@ export default function FounderSection() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              The Heart Behind the Art
+              {t('about.founder.title')}
             </MotionTypography>
 
             {/* Bio Paragraphs */}
@@ -135,8 +137,7 @@ export default function FounderSection() {
                   mb: 3,
                 }}
               >
-                Smt. Sreenandini Jayaram, the visionary founder of SreeNarthana Natyalaya, brings decades of experience in
-                Bharatanatyam to the dance community of Spring, Texas and surrounding areas.
+                {t('about.founder.p1')}
               </Typography>
 
               <Typography
@@ -148,8 +149,7 @@ export default function FounderSection() {
                   mb: 3,
                 }}
               >
-                Trained under renowned gurus Smt. Sheela Unnikrishnan and Smt. Sreedevi Priya Sriram in India,
-                she is a passionate performer whose dedication to Bharatanatyam is matched by her love for teaching.
+                {t('about.founder.p2')}
               </Typography>
 
               <Typography
@@ -160,9 +160,7 @@ export default function FounderSection() {
                   lineHeight: 1.8,
                 }}
               >
-                Beginning her journey at a young age, Sreenandini Jayaram has evolved into a committed performer, choreographer, and mentor.
-                Her teaching philosophy blends traditional rigor with contemporary sensitivity, ensuring that every student grows not only as a dancer
-                but also as a custodian of cultural heritage.
+                {t('about.founder.p3')}
               </Typography>
             </Box>
 
@@ -220,7 +218,7 @@ export default function FounderSection() {
                   },
                 }}
               >
-                Every rhythm, every glance, and every step is an opportunity to awaken the heart and celebrate the art form.
+                {t('about.founder.quote')}
               </Typography>
 
               <Typography
@@ -232,7 +230,7 @@ export default function FounderSection() {
                   letterSpacing: "0.02em",
                 }}
               >
-                — Sreenandini Jayaram
+                — {t('about.founder.quoteBy')}
               </Typography>
             </MotionBox>
           </MotionBox>

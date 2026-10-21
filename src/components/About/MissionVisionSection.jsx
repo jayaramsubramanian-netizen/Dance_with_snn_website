@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Heart, Award, Target } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
@@ -47,6 +48,7 @@ const cardVariants = {
 };
 
 export default function MissionVisionSection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -95,7 +97,7 @@ export default function MissionVisionSection() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              Our Vision
+              {t('about.mission.title')}
             </Typography>
 
             <Typography
@@ -108,12 +110,13 @@ export default function MissionVisionSection() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              Seek. Nurture. Nipuna.
+              {t('about.mission.tagline')}
             </Typography>
           </MotionBox>
 
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
-            {CARDS.map((card, index) => {
+            {CARDS.map((base, index) => {
+              const card = { ...base, title: t(`about.mission.c${index + 1}.title`), description: t(`about.mission.c${index + 1}.text`) };
               const Icon = card.icon;
               return (
                 <MotionBox
@@ -224,8 +227,8 @@ export default function MissionVisionSection() {
           <Box
             component="img"
             // src="https://res.cloudinary.com/dtovj9rds/image/upload/v1773579848/Shiva_yxbzeb.jpg"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774683042/Shiva_v8qrjy.webp"
-            alt="Shiva Nataraja"
+            src={img('about.mission.image').src}
+            alt={img('about.mission.image').alt}
             loading="lazy"
             decoding="async"
             sx={{
@@ -277,7 +280,7 @@ export default function MissionVisionSection() {
                 color: "rgba(253,232,224,0.7)",
               }}
             >
-              Nataraja
+              {t('about.mission.caption')}
             </Typography>
             <Typography
               sx={{
@@ -289,7 +292,7 @@ export default function MissionVisionSection() {
                 mt: 0.3,
               }}
             >
-              Lord of Dance
+              {t('about.mission.subcaption')}
             </Typography>
           </Box>
         </MotionBox>
