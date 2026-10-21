@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
@@ -96,7 +97,7 @@ function FeatureCard({ feature, index, accentIdx, isActive, onClick }) {
         variants={imageV}
         component="img"
         src={feature.image}
-        alt={feature.title}
+        alt={feature.alt || feature.title}
         sx={{
           position: "absolute", inset: 0,
           width: "100%", height: "100%",
@@ -210,13 +211,13 @@ function FeatureCard({ feature, index, accentIdx, isActive, onClick }) {
 export default function NatyamSection() {
   const [activeCard, setActiveCard] = useState(null);
 
-  const features = [
-    { title: "Passionate Teaching",  description: "Led by Tradition, Inspired by Passion Learn Bharatanatyam under a passionate Guru, trained by renowned masters, blending classical lineage with dedicated mentorship.",    image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774683850/StudentPic1_pznlfm.webp" },
-    { title: "Small Group Batches",  description: "Carefully curated small batches provide individualized attention, allowing each student to refine technique, expression, and stage presence.",          image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703759/student2_zoe5lr.jpg" },
-    { title: "One-on-One Sessions",  description: "Personalized individual sessions to refine performance and expression, supporting mastery in every aspect of dance.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703763/student4_fjnodc.jpg" },
-    { title: "Interactive Learning", description: "Fun and engaging teaching methods that make learning enjoyable for young dancers.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09449_check_kgcjhs.webp" },
-    { title: "Periodic Evaluations", description: "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements.",         image: "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09002_qdface.webp" },
-  ];
+  const { t, img } = useContent();
+  const features = [1, 2, 3, 4, 5].map((i) => ({
+    title: t(`classes.why.f${i}.title`),
+    description: t(`classes.why.f${i}.text`),
+    image: img(`classes.why.f${i}.image`).src,
+    alt: img(`classes.why.f${i}.image`).alt,
+  }));
 
   const handleClick = (i) => setActiveCard(activeCard === i ? null : i);
 
@@ -276,7 +277,7 @@ export default function NatyamSection() {
             textShadow: "0 4px 24px rgba(124,27,50,0.45)",
             mb: 1.5, lineHeight: 1.15,
           }}>
-            The SreeNarthana Distinction
+            {t('classes.why.title')}
           </Typography>
 
           <Typography sx={{
@@ -285,7 +286,7 @@ export default function NatyamSection() {
             color: "rgba(255,255,255,0.5)",
             maxWidth: "560px", mx: "auto", lineHeight: 1.7,
           }}>
-            A Guru–Shishya Journey of Tradition, Excellence, and Personal Growth
+            {t('classes.why.subtitle')}
           </Typography>
         </MotionBox>
 

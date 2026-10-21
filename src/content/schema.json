@@ -720,7 +720,474 @@
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
-      "sections": []
+      "sections": [
+        {
+          "id": "hero",
+          "label": "Top banner",
+          "fields": [
+            {
+              "key": "classes.hero.image",
+              "label": "Main photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774704095/DSC09538_gsl2xc.jpg",
+              "altDefault": "Dance training"
+            },
+            {
+              "key": "classes.hero.title",
+              "label": "Headline",
+              "type": "text",
+              "default": "Natyam"
+            },
+            {
+              "key": "classes.hero.subtitle",
+              "label": "Sub-heading",
+              "type": "textarea",
+              "default": "Mārga of Bharatanatyam · Path of Dance · Structured programs for every stage of your dance journey"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "label": "The SreeNarthana Distinction (5 cards)",
+          "fields": [
+            {
+              "key": "classes.why.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "The SreeNarthana Distinction"
+            },
+            {
+              "key": "classes.why.subtitle",
+              "label": "Sub-heading",
+              "type": "text",
+              "default": "A Guru–Shishya Journey of Tradition, Excellence, and Personal Growth"
+            },
+            {
+              "key": "classes.why.f1.title",
+              "label": "Card 1 — title",
+              "type": "text",
+              "default": "Passionate Teaching"
+            },
+            {
+              "key": "classes.why.f1.text",
+              "label": "Card 1 — text (shown on hover/tap)",
+              "type": "textarea",
+              "default": "Led by Tradition, Inspired by Passion Learn Bharatanatyam under a passionate Guru, trained by renowned masters, blending classical lineage with dedicated mentorship."
+            },
+            {
+              "key": "classes.why.f1.image",
+              "label": "Card 1 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774683850/StudentPic1_pznlfm.webp",
+              "altDefault": "Passionate Teaching"
+            },
+            {
+              "key": "classes.why.f2.title",
+              "label": "Card 2 — title",
+              "type": "text",
+              "default": "Small Group Batches"
+            },
+            {
+              "key": "classes.why.f2.text",
+              "label": "Card 2 — text (shown on hover/tap)",
+              "type": "textarea",
+              "default": "Carefully curated small batches provide individualized attention, allowing each student to refine technique, expression, and stage presence."
+            },
+            {
+              "key": "classes.why.f2.image",
+              "label": "Card 2 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703759/student2_zoe5lr.jpg",
+              "altDefault": "Small Group Batches"
+            },
+            {
+              "key": "classes.why.f3.title",
+              "label": "Card 3 — title",
+              "type": "text",
+              "default": "One-on-One Sessions"
+            },
+            {
+              "key": "classes.why.f3.text",
+              "label": "Card 3 — text (shown on hover/tap)",
+              "type": "textarea",
+              "default": "Personalized individual sessions to refine performance and expression, supporting mastery in every aspect of dance."
+            },
+            {
+              "key": "classes.why.f3.image",
+              "label": "Card 3 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1774703763/student4_fjnodc.jpg",
+              "altDefault": "One-on-One Sessions"
+            },
+            {
+              "key": "classes.why.f4.title",
+              "label": "Card 4 — title",
+              "type": "text",
+              "default": "Interactive Learning"
+            },
+            {
+              "key": "classes.why.f4.text",
+              "label": "Card 4 — text (shown on hover/tap)",
+              "type": "textarea",
+              "default": "Fun and engaging teaching methods that make learning enjoyable for young dancers."
+            },
+            {
+              "key": "classes.why.f4.image",
+              "label": "Card 4 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09449_check_kgcjhs.webp",
+              "altDefault": "Interactive Learning"
+            },
+            {
+              "key": "classes.why.f5.title",
+              "label": "Card 5 — title",
+              "type": "text",
+              "default": "Periodic Evaluations"
+            },
+            {
+              "key": "classes.why.f5.text",
+              "label": "Card 5 — text (shown on hover/tap)",
+              "type": "textarea",
+              "default": "Periodic evaluations and examinations that help students track growth, set goals, and celebrate achievements."
+            },
+            {
+              "key": "classes.why.f5.image",
+              "label": "Card 5 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_600/v1777104978/DSC09002_qdface.webp",
+              "altDefault": "Periodic Evaluations"
+            }
+          ]
+        },
+        {
+          "id": "programs",
+          "label": "Programs / levels",
+          "fields": [
+            {
+              "key": "classes.programs.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Śikshana-Kramāh"
+            },
+            {
+              "key": "classes.programs.eyebrow",
+              "label": "Small heading",
+              "type": "text",
+              "default": "Our Programs"
+            },
+            {
+              "key": "classes.programs.intro",
+              "label": "Introduction",
+              "type": "textarea",
+              "default": "Our curriculum offers a holistic journey through Bharatanatyam, combining dance history, theory, technique, fitness, and music. Students progress through structured levels covering the full spectrum of dance education—from foundational steps to teaching and performance mastery."
+            },
+            {
+              "key": "classes.programs.l1.tag",
+              "label": "Level 1 — tag",
+              "type": "text",
+              "default": "Level 1"
+            },
+            {
+              "key": "classes.programs.l1.title",
+              "label": "Level 1 — name",
+              "type": "text",
+              "default": "Pādamārga — Path of the First Steps"
+            },
+            {
+              "key": "classes.programs.l1.level",
+              "label": "Level 1 — subtitle",
+              "type": "text",
+              "default": "Beginner Foundation"
+            },
+            {
+              "key": "classes.programs.l1.text",
+              "label": "Level 1 — description",
+              "type": "textarea",
+              "default": "Perfect for those new to Bharatanatyam, this level introduces students to the essential building blocks of the art form. Focus is on posture, coordination, rhythm, and foundational technique."
+            },
+            {
+              "key": "classes.programs.l1.points",
+              "label": "Level 1 — what students learn (one per line)",
+              "type": "textarea",
+              "default": "Basic adavus and fundamental movements\nIntroduction to mudras (hand gestures)\nRhythmic training and tala awareness\nBharatanatyam's cultural & traditional context"
+            },
+            {
+              "key": "classes.programs.l1.age",
+              "label": "Level 1 — age group",
+              "type": "text",
+              "default": "6 to 12 years"
+            },
+            {
+              "key": "classes.programs.l1.duration",
+              "label": "Level 1 — class length",
+              "type": "text",
+              "default": "60 minutes"
+            },
+            {
+              "key": "classes.programs.l1.size",
+              "label": "Level 1 — class size",
+              "type": "text",
+              "default": "5 to 8 students"
+            },
+            {
+              "key": "classes.programs.l1.image",
+              "label": "Level 1 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774683397/DSC_0788_zdhr5c.webp",
+              "altDefault": "Pādamārga — Path of the First Steps"
+            },
+            {
+              "key": "classes.programs.l2.tag",
+              "label": "Level 2 — tag",
+              "type": "text",
+              "default": "Level 2"
+            },
+            {
+              "key": "classes.programs.l2.title",
+              "label": "Level 2 — name",
+              "type": "text",
+              "default": "Abhyāsa Mārga — Path of Practice and Refinement"
+            },
+            {
+              "key": "classes.programs.l2.level",
+              "label": "Level 2 — subtitle",
+              "type": "text",
+              "default": "Intermediate Development"
+            },
+            {
+              "key": "classes.programs.l2.text",
+              "label": "Level 2 — description",
+              "type": "textarea",
+              "default": "Designed for students with a foundational understanding, this level deepens technique and builds expressive clarity through disciplined practice and coordination."
+            },
+            {
+              "key": "classes.programs.l2.points",
+              "label": "Level 2 — what students learn (one per line)",
+              "type": "textarea",
+              "default": "Advanced adavus and movement combinations\nIntroduction to abhinaya\nStrengthening rhythm through jatis and tala patterns\nCoordination of body and expression\nContinued repertoire exploration"
+            },
+            {
+              "key": "classes.programs.l2.age",
+              "label": "Level 2 — age group",
+              "type": "text",
+              "default": "10 to 16 years"
+            },
+            {
+              "key": "classes.programs.l2.duration",
+              "label": "Level 2 — class length",
+              "type": "text",
+              "default": "75 minutes"
+            },
+            {
+              "key": "classes.programs.l2.size",
+              "label": "Level 2 — class size",
+              "type": "text",
+              "default": "5 to 8 students"
+            },
+            {
+              "key": "classes.programs.l2.image",
+              "label": "Level 2 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703759/level2_pifsup.jpg",
+              "altDefault": "Abhyāsa Mārga — Path of Practice and Refinement"
+            },
+            {
+              "key": "classes.programs.l3.tag",
+              "label": "Level 3 — tag",
+              "type": "text",
+              "default": "Level 3"
+            },
+            {
+              "key": "classes.programs.l3.title",
+              "label": "Level 3 — name",
+              "type": "text",
+              "default": "Niṣpatti Mārga — Path of Culmination"
+            },
+            {
+              "key": "classes.programs.l3.level",
+              "label": "Level 3 — subtitle",
+              "type": "text",
+              "default": "Advanced Mastery"
+            },
+            {
+              "key": "classes.programs.l3.text",
+              "label": "Level 3 — description",
+              "type": "textarea",
+              "default": "This level focuses on artistic maturity and performance readiness. Students refine technique, deepen expression, and embody the art with confidence, precision, and depth."
+            },
+            {
+              "key": "classes.programs.l3.points",
+              "label": "Level 3 — what students learn (one per line)",
+              "type": "textarea",
+              "default": "Mastery of adavus and complex sequences\nAdvanced abhinaya and storytelling\nRhythmic understanding and improvisation\nFull dance presentations\nStage presence and musicality"
+            },
+            {
+              "key": "classes.programs.l3.age",
+              "label": "Level 3 — age group",
+              "type": "text",
+              "default": "16+ years"
+            },
+            {
+              "key": "classes.programs.l3.duration",
+              "label": "Level 3 — class length",
+              "type": "text",
+              "default": "75 to 90 minutes"
+            },
+            {
+              "key": "classes.programs.l3.size",
+              "label": "Level 3 — class size",
+              "type": "text",
+              "default": "5 to 8 students"
+            },
+            {
+              "key": "classes.programs.l3.image",
+              "label": "Level 3 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1777104481/DSC09376_check_zcqs9p.jpg",
+              "altDefault": "Niṣpatti Mārga — Path of Culmination"
+            },
+            {
+              "key": "classes.programs.note",
+              "label": "Note under the levels",
+              "type": "textarea",
+              "default": "The outlined levels represent a structured approach to the method of teaching. Progression or Advancement through these levels may vary based on each student’s interest, commitment, and individual learning pace."
+            }
+          ]
+        },
+        {
+          "id": "schedule",
+          "label": "Class schedule",
+          "help": "Clear a day's name to hide it. Days 5–6 are empty slots for extra class days.",
+          "fields": [
+            {
+              "key": "classes.schedule.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Class Schedule"
+            },
+            {
+              "key": "classes.schedule.subtitle",
+              "label": "Sub-heading",
+              "type": "text",
+              "default": "Regular weekly classes to build your skills"
+            },
+            {
+              "key": "classes.schedule.d1.day",
+              "label": "Day 1",
+              "type": "text",
+              "default": "Monday"
+            },
+            {
+              "key": "classes.schedule.d1.times",
+              "label": "Day 1 — class times (one per line)",
+              "type": "textarea",
+              "default": "5:30 pm – 6:30 pm\n6:45 pm – 7:45 pm"
+            },
+            {
+              "key": "classes.schedule.d1.image",
+              "label": "Day 1 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703760/monday_nardeq.jpg",
+              "altDefault": "Monday"
+            },
+            {
+              "key": "classes.schedule.d2.day",
+              "label": "Day 2",
+              "type": "text",
+              "default": "Wednesday"
+            },
+            {
+              "key": "classes.schedule.d2.times",
+              "label": "Day 2 — class times (one per line)",
+              "type": "textarea",
+              "default": "5:30 pm – 6:30 pm\n6:45 pm – 7:45 pm"
+            },
+            {
+              "key": "classes.schedule.d2.image",
+              "label": "Day 2 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703088/DSC09424_h1l4qx.jpg",
+              "altDefault": "Wednesday"
+            },
+            {
+              "key": "classes.schedule.d3.day",
+              "label": "Day 3",
+              "type": "text",
+              "default": "Thursday"
+            },
+            {
+              "key": "classes.schedule.d3.times",
+              "label": "Day 3 — class times (one per line)",
+              "type": "textarea",
+              "default": "5:30 pm – 6:30 pm"
+            },
+            {
+              "key": "classes.schedule.d3.image",
+              "label": "Day 3 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774704096/thursday_ehjrrn.jpg",
+              "altDefault": "Thursday"
+            },
+            {
+              "key": "classes.schedule.d4.day",
+              "label": "Day 4",
+              "type": "text",
+              "default": "Friday"
+            },
+            {
+              "key": "classes.schedule.d4.times",
+              "label": "Day 4 — class times (one per line)",
+              "type": "textarea",
+              "default": "5:30 pm – 6:30 pm"
+            },
+            {
+              "key": "classes.schedule.d4.image",
+              "label": "Day 4 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1777104978/DSC09084_check_puwpk7.webp",
+              "altDefault": "Friday"
+            },
+            {
+              "key": "classes.schedule.d5.day",
+              "label": "Day 5",
+              "type": "text",
+              "default": ""
+            },
+            {
+              "key": "classes.schedule.d5.times",
+              "label": "Day 5 — class times (one per line)",
+              "type": "textarea",
+              "default": ""
+            },
+            {
+              "key": "classes.schedule.d5.image",
+              "label": "Day 5 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703760/monday_nardeq.jpg",
+              "altDefault": "Bharatanatyam class"
+            },
+            {
+              "key": "classes.schedule.d6.day",
+              "label": "Day 6",
+              "type": "text",
+              "default": ""
+            },
+            {
+              "key": "classes.schedule.d6.times",
+              "label": "Day 6 — class times (one per line)",
+              "type": "textarea",
+              "default": ""
+            },
+            {
+              "key": "classes.schedule.d6.image",
+              "label": "Day 6 — photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774703760/monday_nardeq.jpg",
+              "altDefault": "Bharatanatyam class"
+            }
+          ]
+        }
+      ]
     },
     {
       "path": "/events",

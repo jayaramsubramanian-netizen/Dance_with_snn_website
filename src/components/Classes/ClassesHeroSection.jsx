@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 export default function ClassesHeroSection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -51,8 +53,8 @@ export default function ClassesHeroSection() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774704095/DSC09538_gsl2xc.jpg"
-            alt="Dance training"
+            src={img('classes.hero.image').src}
+            alt={img('classes.hero.image').alt}
             sx={{
               width: "100%",
               height: "100%",
@@ -123,7 +125,7 @@ export default function ClassesHeroSection() {
             lineHeight: 1.1,
           }}
         >
-          Natyam
+          {t('classes.hero.title')}
         </MotionTypography>
 
         {/* Subtitle */}
@@ -140,7 +142,7 @@ export default function ClassesHeroSection() {
             textShadow: "0 2px 8px rgba(0,0,0,0.6)",
           }}
         >
-          Mārga of Bharatanatyam · Path of Dance · Structured programs for every stage of your dance journey
+          {t('classes.hero.subtitle')}
         </MotionTypography>
 
         {/* Decorative line below */}

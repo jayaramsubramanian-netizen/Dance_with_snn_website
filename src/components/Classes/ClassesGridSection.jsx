@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Check, Users, Clock } from "lucide-react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const EASE = [0.4, 0, 0.2, 1];
@@ -299,7 +300,7 @@ function ClassCard({ item, index }) {
         <Box
           component="img"
           src={item.image}
-          alt={item.title}
+          alt={item.alt || item.title}
           sx={{
             position: "absolute", inset: 0,
             width: "100%", height: "100%",
@@ -361,6 +362,18 @@ function ClassCard({ item, index }) {
    SECTION
 ══════════════════════════════════════════════ */
 export default function ClassesGridSection() {
+  const { t: tx, img } = useContent();
+  const programs = CLASSES.map((c, i) => {
+    const k = `classes.programs.l${i + 1}`;
+    return {
+      ...c,
+      levelTag: tx(`${k}.tag`), title: tx(`${k}.title`), level: tx(`${k}.level`),
+      description: tx(`${k}.text`),
+      features: tx(`${k}.points`).split('\n').map((s) => s.trim()).filter(Boolean),
+      age: tx(`${k}.age`), duration: tx(`${k}.duration`), students: tx(`${k}.size`),
+      image: img(`${k}.image`).src, alt: img(`${k}.image`).alt,
+    };
+  });
   return (
     <Box
       component="section"
@@ -416,7 +429,7 @@ export default function ClassesGridSection() {
             textShadow: "0 4px 24px rgba(124,27,50,0.45)",
             mb: 1.5, lineHeight: 1.1,
           }}>
-            Śikshana-Kramāh
+            {tx('classes.programs.title')}
           </Typography>
 
           {/* NEW TYPOGRAPHY */}
@@ -429,7 +442,7 @@ export default function ClassesGridSection() {
               mb: 2,
             }}
           >
-            Our Programs
+            {tx('classes.programs.eyebrow')}
           </Typography>
 
           <Typography sx={{
@@ -438,14 +451,13 @@ export default function ClassesGridSection() {
             color: "rgba(253,232,224,0.6)",
             maxWidth: "580px", mx: "auto", lineHeight: 1.75,
           }}>
-            Our curriculum offers a holistic journey through Bharatanatyam, combining dance history, theory, technique, fitness, and music. Students
-            progress through structured levels covering the full spectrum of dance education—from foundational steps to teaching and performance mastery.
+            {tx('classes.programs.intro')}
           </Typography>
         </MotionBox>
 
         {/* ── Cards ── */}
         <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 3.5, md: 4 } }}>
-          {CLASSES.map((item, i) => (
+          {programs.map((item, i) => (
             <ClassCard key={item.title} item={item} index={i} />
           ))}
         </Box>
@@ -475,8 +487,7 @@ export default function ClassesGridSection() {
             lineHeight: 1.75,
             mt: "12px",
           }}>
-            The outlined levels represent a structured approach to the method of teaching. Progression or Advancement through these
-            levels may vary based on each student’s interest, commitment, and individual learning pace.
+            {tx('classes.programs.note')}
           </Typography>
         </MotionBox>
 
