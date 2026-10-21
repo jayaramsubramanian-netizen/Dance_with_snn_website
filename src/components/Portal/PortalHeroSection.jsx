@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useContent, Rich } from '../../content/ContentContext.jsx';
 
@@ -882,6 +882,12 @@ function DocViewer({ doc, onClose, isMobile }) {
 export default function PortalComponent() {
   const { t, img } = useContent();
   const [activeDoc, setActiveDoc] = useState(null);
+  // /policies#privacy, #tos, #handbook, #consent, #payment open that document
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    const doc = DOCUMENTS.find((d) => d.id === id);
+    if (doc) setActiveDoc(doc);
+  }, []);
 
   return (
     <Box sx={{
@@ -898,83 +904,7 @@ export default function PortalComponent() {
       boxSizing: "border-box",
     }}>
 
-      {/* ══ LEFT 30% — Login ══ */}
-      <Box sx={{
-  width: { xs: "100%", md: "30%" },
-  flexShrink: 0,
-  background: `
-    radial-gradient(ellipse at 30% 30%, rgba(124,27,50,0.28) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(91,45,142,0.1) 0%, transparent 55%),
-    #06030A
-  `,
-  borderRight: { md: "0.5px solid rgba(124,27,50,0.2)" },
-  borderBottom: { xs: "0.5px solid rgba(124,27,50,0.15)", md: "none" },
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  /* No justifyContent: center — use margin:auto on child so scroll works on short screens */
-  justifyContent: "flex-start",
-  py: { xs: "40px", md: "5vh" },
-  px: { xs: 3, md: 5 },
-
-  position: "relative",
-  overflowY: "auto",
-  overflowX: "hidden",
-}}>
-        <Box sx={{ position: "absolute", top: 28, left: 28, opacity: 0.2, pointerEvents: "none" }}>
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#7C1B32" strokeWidth="1" strokeLinecap="round" />
-          </svg>
-        </Box>
-        <Box sx={{ position: "absolute", bottom: 28, right: 28, opacity: 0.2, transform: "rotate(180deg)", pointerEvents: "none" }}>
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#7C1B32" strokeWidth="1" strokeLinecap="round" />
-          </svg>
-        </Box>
-
-        {/* margin:auto centers vertically when there's space; collapses gracefully when short */}
-        <Box sx={{ width: "100%", maxWidth: "320px", my: "auto" }}>
-          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }} sx={{ mb: 5, textAlign: "center" }}>
-            <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: "1.8rem", color: "#FDE8E0", lineHeight: 1, mb: 0.4 }}>
-              {t('portal.side.title')}
-            </Typography>
-            <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.72rem", color: "#E94B6E", letterSpacing: "0.16em", textTransform: "uppercase" }}>
-              {t('portal.side.subtitle')}
-            </Typography>
-          </MotionBox>
-
-          <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.15, ease: EASE }} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <Box>
-              <Typography sx={labelSx}>Email</Typography>
-              <Box component="input" type="email" placeholder="your@email.com" sx={inputSx} />
-            </Box>
-            <Box>
-              <Typography sx={labelSx}>Password</Typography>
-              <Box component="input" type="password" placeholder="••••••••" sx={inputSx} />
-            </Box>
-
-            <Box component="button" sx={{ mt: 0.5, height: "46px", borderRadius: "9px", background: "#7C1B32", border: "none", color: "#FDE8E0", fontFamily: "'Roboto', sans-serif", fontSize: "0.88rem", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", cursor: "pointer", transition: "background 0.2s ease, transform 0.18s ease", "&:hover": { background: "#9B2240", transform: "translateY(-2px)" }, "&:active": { transform: "scale(0.97)" } }}>
-              Sign In
-            </Box>
-
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, my: 0.5 }}>
-              <Box sx={{ flex: 1, height: "0.5px", background: "rgba(253,232,224,0.1)" }} />
-              <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.7rem", color: "rgba(253,232,224,0.25)" }}>or</Typography>
-              <Box sx={{ flex: 1, height: "0.5px", background: "rgba(253,232,224,0.1)" }} />
-            </Box>
-
-            <Box component="button" sx={{ height: "46px", borderRadius: "9px", background: "transparent", border: "0.5px solid rgba(124,27,50,0.4)", color: "rgba(253,232,224,0.6)", fontFamily: "'Roboto', sans-serif", fontSize: "0.88rem", cursor: "pointer", transition: "all 0.2s ease", "&:hover": { borderColor: "rgba(124,27,50,0.7)", color: "#FDE8E0", background: "rgba(124,27,50,0.08)" } }}>
-              Create an Account
-            </Box>
-
-            <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.75rem", color: "rgba(253,232,224,0.25)", textAlign: "center", cursor: "pointer", "&:hover": { color: "rgba(253,232,224,0.5)" }, transition: "color 0.2s" }}>
-              Forgot your password?
-            </Typography>
-          </MotionBox>
-        </Box>
-      </Box>
-
-      {/* ══ RIGHT 70% — Documents ══ */}
+      {/* ══ Documents ══ */}
       <Box sx={{
         flex: 1,
         position: "relative",
@@ -990,6 +920,7 @@ export default function PortalComponent() {
 
         {/* Scrollable content area */}
         <Box sx={{
+          maxWidth: "880px", mx: "auto", width: "100%", boxSizing: "border-box",
           height: { xs: "auto", md: "100%" },
           overflowY: { xs: "visible", md: "auto" },
           display: "flex",
@@ -1005,10 +936,10 @@ export default function PortalComponent() {
           {/* Header */}
           <MotionBox initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} sx={{ mb: { xs: 3, md: 4 } }}>
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.7rem", md: "2.4rem" }, color: "#FDE8E0", lineHeight: 1.1, mb: 0.8 }}>
-              {t('portal.docs.title')}
+              {t('policies.docs.title')}
             </Typography>
             <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.85rem", color: "rgba(253,232,224,0.38)", lineHeight: 1.6, maxWidth: "420px" }}>
-              {t('portal.docs.text')}
+              {t('policies.docs.text')}
             </Typography>
           </MotionBox>
 
@@ -1028,16 +959,16 @@ export default function PortalComponent() {
             <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "flex-start", sm: "center" }, justifyContent: "space-between", gap: 2 }}>
               <Box>
                 <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.05rem", md: "1.2rem" }, color: "#FDE8E0", mb: 0.3 }}>
-                  {t('portal.join.title')}
+                  {t('policies.join.title')}
                 </Typography>
                 <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.78rem", color: "rgba(253,232,224,0.32)", lineHeight: 1.5 }}>
-                  {t('portal.join.text')}
+                  {t('policies.join.text')}
                 </Typography>
               </Box>
 
               <Box
                 component="a"
-                href={t('portal.join.link')}
+                href={t('policies.join.link')}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -1060,7 +991,7 @@ export default function PortalComponent() {
                   "&:active": { transform: "scale(0.97)" },
                 }}
               >
-                {t('portal.join.button')}
+                {t('policies.join.button')}
               </Box>
             </Box>
           </MotionBox>

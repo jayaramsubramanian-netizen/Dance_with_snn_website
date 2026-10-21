@@ -1,0 +1,12 @@
+---
+// Public policies page: handbook, terms, privacy policy, consent, payment terms
+// (+ registration link). Linked from the footer on every page.
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { loadContent } from '../content/load.js';
+import { contentForPage } from '../content/core.js';
+import Policies from '../islands/Policies.jsx';
+const content = contentForPage(loadContent(), '/policies');
+---
+<SiteLayout path="/policies">
+  <Policies client:load content={content} />
+</SiteLayout>

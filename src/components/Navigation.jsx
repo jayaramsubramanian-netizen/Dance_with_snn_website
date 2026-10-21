@@ -27,7 +27,7 @@ export function Navigation() {
     { path: "/about", label: "About Us" },
     { path: "/classes", label: "Classes" },
     { path: "/events", label: "Gallery" },
-    { path: "/portal", label: "Portal" },
+    { path: "https://portal.dancewithsnn.com/portal/login", label: "Portal" },
     { path: "/contact", label: "Contact" },
   ];
 

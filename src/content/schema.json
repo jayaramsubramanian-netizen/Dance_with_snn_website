@@ -1230,47 +1230,29 @@
       ]
     },
     {
-      "path": "/portal",
-      "label": "Portal",
+      "path": "/policies",
+      "label": "Policies & Register",
       "seo": {
-        "title": "Student Portal | Sree Narthana Natyalaya",
-        "description": "Access the student portal for Sree Narthana Natyalaya dance classes.",
-        "ogTitle": "Student Portal | Sree Narthana Natyalaya",
+        "title": "Policies & Registration | Sree Narthana Natyalaya (Dance With SNN)",
+        "description": "Student handbook, terms, privacy policy, parent consent and payment terms for Sree Narthana Natyalaya Bharatanatyam classes in Spring, Texas — and how to register.",
+        "ogTitle": "Policies & Registration | Sree Narthana Natyalaya",
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
       "sections": [
-        {
-          "id": "side",
-          "label": "Left panel",
-          "fields": [
-            {
-              "key": "portal.side.title",
-              "label": "Title",
-              "type": "text",
-              "default": "Sree Narthana Natyalaya"
-            },
-            {
-              "key": "portal.side.subtitle",
-              "label": "Subtitle",
-              "type": "text",
-              "default": "Student Portal"
-            }
-          ]
-        },
         {
           "id": "docs",
           "label": "Documents & policies",
           "help": "The documents themselves (handbook, terms, privacy policy, waiver, payment terms) are legal text and stay in the website code — ask to have them changed so they stay in step with the portal.",
           "fields": [
             {
-              "key": "portal.docs.title",
+              "key": "policies.docs.title",
               "label": "Heading",
               "type": "text",
               "default": "Documents & Policies"
             },
             {
-              "key": "portal.docs.text",
+              "key": "policies.docs.text",
               "label": "Text",
               "type": "textarea",
               "default": "Please review and acknowledge all required documents before completing your enrollment."
@@ -1282,25 +1264,25 @@
           "label": "Register",
           "fields": [
             {
-              "key": "portal.join.title",
+              "key": "policies.join.title",
               "label": "Heading",
               "type": "text",
               "default": "Ready to Join?"
             },
             {
-              "key": "portal.join.text",
+              "key": "policies.join.text",
               "label": "Text",
               "type": "text",
               "default": "Complete your enrollment by registering below."
             },
             {
-              "key": "portal.join.button",
+              "key": "policies.join.button",
               "label": "Button label",
               "type": "text",
               "default": "Register Now →"
             },
             {
-              "key": "portal.join.link",
+              "key": "policies.join.link",
               "label": "Button link (registration form web address)",
               "type": "link",
               "default": "https://docs.google.com/forms/d/e/1FAIpQLSfkF11rllSLF2jAGpF_Q8mfBgMvAhZKEEqlaGY52lGvHjLiZg/viewform?usp=sharing&ouid=117175852009957048619"

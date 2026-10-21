@@ -33,7 +33,7 @@ export function FooterBottom() {
       <Box sx={{ display: "flex", gap: 3 }}>
         <Typography
           component={Link}
-          to="/portal"
+          to="/policies#privacy"
           sx={{
             fontSize: "0.85rem",
             color: "rgba(253,232,224,0.5)",
@@ -46,7 +46,7 @@ export function FooterBottom() {
 
         <Typography
           component={Link}
-          to="/portal"
+          to="/policies#tos"
           sx={{
             fontSize: "0.85rem",
             color: "rgba(253,232,224,0.5)",
