@@ -254,7 +254,7 @@ export function DividerAndCTASection() {
             <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" } }}>
               <Box
                 component={Link}
-                to="/policies"
+                to="/contact"
                 sx={{
                   display: "inline-flex",
                   alignItems: "center",

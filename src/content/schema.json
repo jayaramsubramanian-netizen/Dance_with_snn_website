@@ -1267,13 +1267,13 @@
               "key": "policies.join.title",
               "label": "Heading",
               "type": "text",
-              "default": "Ready to Join?"
+              "default": "Ready for the Portal?"
             },
             {
               "key": "policies.join.text",
               "label": "Text",
               "type": "text",
-              "default": "Complete your enrollment by registering below."
+              "default": "Already enrolled? Create your student portal account."
             },
             {
               "key": "policies.join.button",
@@ -1283,11 +1283,12 @@
             },
             {
               "key": "policies.join.link",
-              "label": "Button link (registration form web address)",
+              "label": "Button link (portal registration form)",
               "type": "link",
-              "default": "https://docs.google.com/forms/d/e/1FAIpQLSfkF11rllSLF2jAGpF_Q8mfBgMvAhZKEEqlaGY52lGvHjLiZg/viewform?usp=sharing&ouid=117175852009957048619"
+              "default": "https://portal.dancewithsnn.com/portal/register"
             }
-          ]
+          ],
+          "help": "For students who are already enrolled. New families should use the Contact page."
         }
       ]
     },
