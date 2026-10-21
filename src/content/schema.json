@@ -1199,7 +1199,35 @@
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
-      "sections": []
+      "sections": [
+        {
+          "id": "hero",
+          "label": "Top banner",
+          "help": "The events themselves are managed in admin → Events.",
+          "fields": [
+            {
+              "key": "events.hero.image",
+              "label": "Main photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683282/DSC_0897_uq9geq.webp",
+              "altDefault": "Dance performance"
+            },
+            {
+              "key": "events.hero.title",
+              "label": "Headline",
+              "type": "textarea",
+              "default": "Gallery &\nEvents",
+              "help": "Press Enter where the line should break."
+            },
+            {
+              "key": "events.hero.subtitle",
+              "label": "Sub-heading",
+              "type": "text",
+              "default": "Celebrating artistry on stage and in community"
+            }
+          ]
+        }
+      ]
     },
     {
       "path": "/portal",
@@ -1211,7 +1239,75 @@
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
-      "sections": []
+      "sections": [
+        {
+          "id": "side",
+          "label": "Left panel",
+          "fields": [
+            {
+              "key": "portal.side.title",
+              "label": "Title",
+              "type": "text",
+              "default": "Sree Narthana Natyalaya"
+            },
+            {
+              "key": "portal.side.subtitle",
+              "label": "Subtitle",
+              "type": "text",
+              "default": "Student Portal"
+            }
+          ]
+        },
+        {
+          "id": "docs",
+          "label": "Documents & policies",
+          "help": "The documents themselves (handbook, terms, privacy policy, waiver, payment terms) are legal text and stay in the website code — ask to have them changed so they stay in step with the portal.",
+          "fields": [
+            {
+              "key": "portal.docs.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Documents & Policies"
+            },
+            {
+              "key": "portal.docs.text",
+              "label": "Text",
+              "type": "textarea",
+              "default": "Please review and acknowledge all required documents before completing your enrollment."
+            }
+          ]
+        },
+        {
+          "id": "join",
+          "label": "Register",
+          "fields": [
+            {
+              "key": "portal.join.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Ready to Join?"
+            },
+            {
+              "key": "portal.join.text",
+              "label": "Text",
+              "type": "text",
+              "default": "Complete your enrollment by registering below."
+            },
+            {
+              "key": "portal.join.button",
+              "label": "Button label",
+              "type": "text",
+              "default": "Register Now →"
+            },
+            {
+              "key": "portal.join.link",
+              "label": "Button link (registration form web address)",
+              "type": "link",
+              "default": "https://docs.google.com/forms/d/e/1FAIpQLSfkF11rllSLF2jAGpF_Q8mfBgMvAhZKEEqlaGY52lGvHjLiZg/viewform?usp=sharing&ouid=117175852009957048619"
+            }
+          ]
+        }
+      ]
     },
     {
       "path": "/contact",
@@ -1223,7 +1319,112 @@
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
-      "sections": []
+      "sections": [
+        {
+          "id": "hero",
+          "label": "Heading",
+          "fields": [
+            {
+              "key": "contact.hero.eyebrow",
+              "label": "Small heading",
+              "type": "text",
+              "default": "Reach Out"
+            },
+            {
+              "key": "contact.hero.title",
+              "label": "Headline",
+              "type": "text",
+              "default": "Contact Us"
+            },
+            {
+              "key": "contact.hero.subheading",
+              "label": "Sub-heading",
+              "type": "text",
+              "default": "Get In Touch"
+            },
+            {
+              "key": "contact.hero.text",
+              "label": "Text",
+              "type": "textarea",
+              "default": "We'd love to hear from you. Reach out and we'll get back to you shortly."
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "label": "Contact details",
+          "help": "The footer has its own copy of email, phone and address (Site-wide tab) — change both if they change.",
+          "fields": [
+            {
+              "key": "contact.info.emailLabel",
+              "label": "Email — label",
+              "type": "text",
+              "default": "Email Us"
+            },
+            {
+              "key": "contact.info.email",
+              "label": "Email address",
+              "type": "text",
+              "default": "info@dancewithsnn.com"
+            },
+            {
+              "key": "contact.info.phoneLabel",
+              "label": "Phone — label",
+              "type": "text",
+              "default": "Call Us"
+            },
+            {
+              "key": "contact.info.phone",
+              "label": "Phone number",
+              "type": "text",
+              "default": "+1 (630) 750-5272"
+            },
+            {
+              "key": "contact.info.addressLabel",
+              "label": "Address — label",
+              "type": "text",
+              "default": "Visit Us"
+            },
+            {
+              "key": "contact.info.address",
+              "label": "Address (also opens Google Maps)",
+              "type": "text",
+              "default": "27938 Robinson Park Dr, Spring, TX 77386"
+            },
+            {
+              "key": "contact.info.hoursLabel",
+              "label": "Hours — label",
+              "type": "text",
+              "default": "Hours"
+            },
+            {
+              "key": "contact.info.hours",
+              "label": "Hours",
+              "type": "text",
+              "default": "Mon – Fri: 4:00 pm – 8:00 pm"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "label": "Message form",
+          "fields": [
+            {
+              "key": "contact.form.title",
+              "label": "Form heading",
+              "type": "text",
+              "default": "Send Us A Message"
+            },
+            {
+              "key": "contact.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_900/v1774683394/DSC_0899_jdfoon.webp",
+              "altDefault": "Narthana Dance School"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

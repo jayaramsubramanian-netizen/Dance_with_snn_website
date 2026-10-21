@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 export default function EventsHeroSection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -68,7 +70,7 @@ export default function EventsHeroSection() {
             `,
           }}
         >
-          Gallery &{"\n"}Events
+          {t('events.hero.title')}
         </MotionTypography>
 
         <MotionTypography
@@ -86,7 +88,7 @@ export default function EventsHeroSection() {
             opacity: 0.85,
           }}
         >
-          Celebrating artistry on stage and in community
+          {t('events.hero.subtitle')}
         </MotionTypography>
 
         <MotionBox
@@ -134,8 +136,8 @@ export default function EventsHeroSection() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683282/DSC_0897_uq9geq.webp"
-            alt="Dance performance"
+            src={img('events.hero.image').src}
+            alt={img('events.hero.image').alt}
             sx={{
               width: "100%",
               height: "100%",

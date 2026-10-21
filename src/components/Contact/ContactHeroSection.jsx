@@ -3,6 +3,7 @@ import { Snackbar, Alert } from "@mui/material";
 import { motion, useAnimation } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CalendarClock } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 
 const MotionBox = motion.create(Box);
@@ -107,12 +108,14 @@ export default function ContactSection() {
   const [startedAt] = useState(() => Date.now());   // spam filter: bots submit instantly
   const [website, setWebsite] = useState("");         // spam filter: hidden field people never fill
 
+  const { t, img } = useContent();
+  const email = t("contact.info.email"), phone = t("contact.info.phone"), address = t("contact.info.address");
   const contactInfo = [
-    { icon: Mail, title: "Email Us", value: "info@dancewithsnn.com", link: "mailto:info@dancewithsnn.com" },
-    { icon: Phone, title: "Call Us", value: "+1 (630) 750-5272", link: "tel:+16307505272" },
-    { icon: MapPin, title: "Visit Us", value: "27938 Robinson Park Dr, Spring, TX 77386", link: "https://www.google.com/maps/search/?api=1&query=27938+Robinson+Park+Dr,+Spring+Texas+77386" },
-    { icon: CalendarClock, title: "Hours", value: "Mon – Fri: 4:00 pm – 8:00 pm", link: "#" },
-  ];
+    { icon: Mail, title: t("contact.info.emailLabel"), value: email, link: `mailto:${email}` },
+    { icon: Phone, title: t("contact.info.phoneLabel"), value: phone, link: `tel:${phone.replace(/[^+\d]/g, "")}` },
+    { icon: MapPin, title: t("contact.info.addressLabel"), value: address, link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}` },
+    { icon: CalendarClock, title: t("contact.info.hoursLabel"), value: t("contact.info.hours"), link: "#" },
+  ].filter((c) => c.value.trim());
 
   const socials = [
     { Icon: IconInstagram, href: "https://www.instagram.com/sreenarthananatyalaya", target: "_blank", rel: "noopener noreferrer", label: "Instagram" },
@@ -225,7 +228,7 @@ export default function ContactSection() {
             transition={{ duration: 0.45, delay: 0.25, ease: EASE }}
             sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(200,169,110,0.45)", mb: 0.8, mt: 3, }}
           >
-            Reach Out
+            {t('contact.hero.eyebrow')}
           </MotionTypo>
 
           {/* Title */}
@@ -235,7 +238,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.35, ease: EASE }}
             sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.8rem", md: "2.1rem" }, color: "#FFFFFF", fontWeight: 400, lineHeight: 1.05 }}
           >
-            Contact Us
+            {t('contact.hero.title')}
           </MotionTypo>
 
           <Rule delay={0.45} light />
@@ -248,10 +251,10 @@ export default function ContactSection() {
             sx={{ mt: 3, mb: 2.5 }}
           >
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.05rem", md: "1.15rem" }, color: "rgba(255,255,255,0.7)", mb: 0.5 }}>
-              Get In Touch
+              {t('contact.hero.subheading')}
             </Typography>
             <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.75 }}>
-              We'd love to hear from you. Reach out and we'll get back to you shortly.
+              {t('contact.hero.text')}
             </Typography>
           </MotionBox>
 
@@ -396,7 +399,7 @@ export default function ContactSection() {
             sx={{ mb: { xs: 3, md: 3.5 } }}
           >
             <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "1.8rem", md: "2.1rem" }, color: C.text, fontWeight: 400, lineHeight: 1.15, mb: 1 }}>
-              Send Us A Message
+              {t('contact.form.title')}
             </Typography>
             <MotionBox
               initial={{ scaleX: 0 }}
@@ -517,8 +520,8 @@ export default function ContactSection() {
       >
         <MotionBox
           component="img"
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_900/v1774683394/DSC_0899_jdfoon.webp"
-          alt="Narthana Dance School"
+          src={img('contact.image').src}
+          alt={img('contact.image').alt}
           initial={false}
           animate={{ scale: 1 }}
           transition={{ duration: 1.3, delay: 0.3, ease: EASE }}
