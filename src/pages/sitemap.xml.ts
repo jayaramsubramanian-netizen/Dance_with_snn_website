@@ -8,7 +8,7 @@ const PAGES = [
   { path: '/about', priority: '0.8' },
   { path: '/classes', priority: '0.8' },
   { path: '/events', priority: '0.8' },
-  { path: '/portal', priority: '0.5' },
+  { path: '/policies', priority: '0.4' },
   { path: '/contact', priority: '0.7' },
 ];
 

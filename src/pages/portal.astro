@@ -1,11 +1,21 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
-import { loadContent } from '../content/load.js';
-import { contentForPage } from '../content/core.js';
-import Portal from '../islands/Portal.jsx';
-const content = contentForPage(loadContent(), '/portal');
+// dancewithsnn.com/portal now lives at portal.dancewithsnn.com.
+// Sends old links and bookmarks there straight away.
+const TARGET = 'https://portal.dancewithsnn.com/portal/login';
 ---
-<SiteLayout
-  path="/portal">
-  <Portal client:load content={content} />
-</SiteLayout>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal | Sree Narthana Natyalaya</title>
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href={TARGET} />
+  <meta http-equiv="refresh" content={`0; url=${TARGET}`} />
+  <script is:inline define:vars={{ TARGET }}>location.replace(TARGET);</script>
+  <style>body{background:#06030A;color:#FDE8E0;font-family:Roboto,Arial,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0}a{color:#E94B6E}</style>
+</head>
+<body>
+  <p>Taking you to the <a href={TARGET}>Student Portal</a>…</p>
+</body>
+</html>
