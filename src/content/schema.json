@@ -275,7 +275,440 @@
         "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
         "image": ""
       },
-      "sections": []
+      "sections": [
+        {
+          "id": "hero",
+          "label": "Top banner",
+          "fields": [
+            {
+              "key": "about.hero.image",
+              "label": "Main photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1777104977/Collage_i2lr4m.webp",
+              "altDefault": "Dance instruction"
+            },
+            {
+              "key": "about.hero.title",
+              "label": "Headline",
+              "type": "text",
+              "default": "Our Story"
+            },
+            {
+              "key": "about.hero.subtitle",
+              "label": "Sub-heading",
+              "type": "textarea",
+              "default": "A legacy of dedication, artistry, and cultural preservation"
+            }
+          ]
+        },
+        {
+          "id": "mission",
+          "label": "Vision, Mission & Motto",
+          "fields": [
+            {
+              "key": "about.mission.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Our Vision"
+            },
+            {
+              "key": "about.mission.tagline",
+              "label": "Tagline",
+              "type": "text",
+              "default": "Seek. Nurture. Nipuna."
+            },
+            {
+              "key": "about.mission.c1.title",
+              "label": "Card 1 — title",
+              "type": "text",
+              "default": "Our Vision"
+            },
+            {
+              "key": "about.mission.c1.text",
+              "label": "Card 1 — text",
+              "type": "textarea",
+              "default": "To preserve and share the sacred art of Bharatanatyam, inspiring generations through its discipline, grace, and timeless spirit."
+            },
+            {
+              "key": "about.mission.c2.title",
+              "label": "Card 2 — title",
+              "type": "text",
+              "default": "Our Mission"
+            },
+            {
+              "key": "about.mission.c2.text",
+              "label": "Card 2 — text",
+              "type": "textarea",
+              "default": "To nurture artistry through disciplined, tradition-rooted training that builds expressive and culturally aware dancers."
+            },
+            {
+              "key": "about.mission.c3.title",
+              "label": "Card 3 — title",
+              "type": "text",
+              "default": "Our Motto"
+            },
+            {
+              "key": "about.mission.c3.text",
+              "label": "Card 3 — text",
+              "type": "textarea",
+              "default": "Seek knowledge with humility. Nurture growth with discipline. Achieve Nipuna — mastery through devotion and excellence."
+            },
+            {
+              "key": "about.mission.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774683042/Shiva_v8qrjy.webp",
+              "altDefault": "Shiva Nataraja"
+            },
+            {
+              "key": "about.mission.caption",
+              "label": "Photo caption",
+              "type": "text",
+              "default": "Nataraja"
+            },
+            {
+              "key": "about.mission.subcaption",
+              "label": "Photo sub-caption",
+              "type": "text",
+              "default": "Lord of Dance"
+            }
+          ]
+        },
+        {
+          "id": "founder",
+          "label": "Founder",
+          "fields": [
+            {
+              "key": "about.founder.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_700/v1774682832/Nandini_1_accq6d.webp",
+              "altDefault": "Sreenandini Jayaram"
+            },
+            {
+              "key": "about.founder.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "The Heart Behind the Art"
+            },
+            {
+              "key": "about.founder.p1",
+              "label": "Paragraph 1",
+              "type": "textarea",
+              "default": "Smt. Sreenandini Jayaram, the visionary founder of SreeNarthana Natyalaya, brings decades of experience in Bharatanatyam to the dance community of Spring, Texas and surrounding areas."
+            },
+            {
+              "key": "about.founder.p2",
+              "label": "Paragraph 2",
+              "type": "textarea",
+              "default": "Trained under renowned gurus Smt. Sheela Unnikrishnan and Smt. Sreedevi Priya Sriram in India, she is a passionate performer whose dedication to Bharatanatyam is matched by her love for teaching."
+            },
+            {
+              "key": "about.founder.p3",
+              "label": "Paragraph 3",
+              "type": "textarea",
+              "default": "Beginning her journey at a young age, Sreenandini Jayaram has evolved into a committed performer, choreographer, and mentor. Her teaching philosophy blends traditional rigor with contemporary sensitivity, ensuring that every student grows not only as a dancer but also as a custodian of cultural heritage."
+            },
+            {
+              "key": "about.founder.quote",
+              "label": "Quote",
+              "type": "textarea",
+              "default": "Every rhythm, every glance, and every step is an opportunity to awaken the heart and celebrate the art form."
+            },
+            {
+              "key": "about.founder.quoteBy",
+              "label": "Quote by",
+              "type": "text",
+              "default": "Sreenandini Jayaram"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "label": "Our Impact (numbers)",
+          "help": "Clear both the number and its label to hide a box.",
+          "fields": [
+            {
+              "key": "about.impact.image",
+              "label": "Background photo",
+              "type": "image",
+              "default": "https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+              "altDefault": "Dance background"
+            },
+            {
+              "key": "about.impact.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Our Impact"
+            },
+            {
+              "key": "about.impact.s1.number",
+              "label": "Number 1",
+              "type": "text",
+              "default": "27"
+            },
+            {
+              "key": "about.impact.s1.label",
+              "label": "Number 1 — label",
+              "type": "text",
+              "default": "Students Trained"
+            },
+            {
+              "key": "about.impact.s2.number",
+              "label": "Number 2",
+              "type": "text",
+              "default": "20+"
+            },
+            {
+              "key": "about.impact.s2.label",
+              "label": "Number 2 — label",
+              "type": "text",
+              "default": "Years of Excellence"
+            },
+            {
+              "key": "about.impact.s3.number",
+              "label": "Number 3",
+              "type": "text",
+              "default": "50+"
+            },
+            {
+              "key": "about.impact.s3.label",
+              "label": "Number 3 — label",
+              "type": "text",
+              "default": "Performances"
+            },
+            {
+              "key": "about.impact.s4.number",
+              "label": "Number 4",
+              "type": "text",
+              "default": "15+"
+            },
+            {
+              "key": "about.impact.s4.label",
+              "label": "Number 4 — label",
+              "type": "text",
+              "default": "Awards Won"
+            }
+          ]
+        },
+        {
+          "id": "reviews",
+          "label": "Testimonials",
+          "help": "Only add genuine reviews from families. Clear a review's text to hide it; reviews 7–8 are empty slots for new ones.",
+          "fields": [
+            {
+              "key": "about.reviews.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Rasa Reflection"
+            },
+            {
+              "key": "about.reviews.eyebrow",
+              "label": "Small heading",
+              "type": "text",
+              "default": "Testimonials"
+            },
+            {
+              "key": "about.reviews.subtitle",
+              "label": "Sub-heading",
+              "type": "text",
+              "default": "Hear from our community of dancers and their families"
+            },
+            {
+              "key": "about.reviews.r1.name",
+              "label": "Review 1 — name",
+              "type": "text",
+              "default": "Swapna"
+            },
+            {
+              "key": "about.reviews.r1.role",
+              "label": "Review 1 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r1.rating",
+              "label": "Review 1 — stars (1–5)",
+              "type": "text",
+              "default": "4"
+            },
+            {
+              "key": "about.reviews.r1.text",
+              "label": "Review 1 — text",
+              "type": "textarea",
+              "default": "Sreenandini is a wonderful teacher who has truly sparked my daughter's (Pradhita's) interest in dance. Thanks to her encouragement and support, Pradhita has transformed from a shy child into a more confident and social individual."
+            },
+            {
+              "key": "about.reviews.r2.name",
+              "label": "Review 2 — name",
+              "type": "text",
+              "default": "Vijayalakshmi"
+            },
+            {
+              "key": "about.reviews.r2.role",
+              "label": "Review 2 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r2.rating",
+              "label": "Review 2 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r2.text",
+              "label": "Review 2 — text",
+              "type": "textarea",
+              "default": "Bharatanatyam being a classical art form derives its beauty from precision, discipline, and a unique style. Unlike many commercial dance classes that focus on quickly completing lessons, this institution is deeply committed to teaching proper posture, mudras, and foundational techniques. Students are promoted only after achieving the required level of proficiency, with no compromises in quality.\n        Respect for the art form is emphasized, ensuring students understand its cultural significance. \n\n        The dedication and effort invested in perfecting each recital make every performance exceptional.\n\n        My child has been learning here for four years, and it has been a joy to witness her growth. I am proud to be part of an institution where the true values of Bharatanatyam are preserved."
+            },
+            {
+              "key": "about.reviews.r3.name",
+              "label": "Review 3 — name",
+              "type": "text",
+              "default": "Eswari N"
+            },
+            {
+              "key": "about.reviews.r3.role",
+              "label": "Review 3 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r3.rating",
+              "label": "Review 3 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r3.text",
+              "label": "Review 3 — text",
+              "type": "textarea",
+              "default": "We joined Ms. Nandini's Sree Narthana Natyalaya a few years back and are grateful for that decision. She is a disciplined and dedicated teacher and a role model. Both my daughters have gained confidence and learned to dance with grace and dignity. We look forward to the institution's excellence spreading to many more students."
+            },
+            {
+              "key": "about.reviews.r4.name",
+              "label": "Review 4 — name",
+              "type": "text",
+              "default": "Thankam Jose"
+            },
+            {
+              "key": "about.reviews.r4.role",
+              "label": "Review 4 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r4.rating",
+              "label": "Review 4 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r4.text",
+              "label": "Review 4 — text",
+              "type": "textarea",
+              "default": "My two daughters, aged 8 and 5, attend Bharatanatyam classes here. Ms. Nandini is patient, kind, and makes learning enjoyable. We've seen great improvement in their confidence and interest in dance. Highly recommended."
+            },
+            {
+              "key": "about.reviews.r5.name",
+              "label": "Review 5 — name",
+              "type": "text",
+              "default": "Pavithra"
+            },
+            {
+              "key": "about.reviews.r5.role",
+              "label": "Review 5 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r5.rating",
+              "label": "Review 5 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r5.text",
+              "label": "Review 5 — text",
+              "type": "textarea",
+              "default": "Wonderful teaching and a very positive environment."
+            },
+            {
+              "key": "about.reviews.r6.name",
+              "label": "Review 6 — name",
+              "type": "text",
+              "default": "Kalyani Manikandan"
+            },
+            {
+              "key": "about.reviews.r6.role",
+              "label": "Review 6 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r6.rating",
+              "label": "Review 6 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r6.text",
+              "label": "Review 6 — text",
+              "type": "textarea",
+              "default": "As a parent, I am incredibly grateful for SreeNandini Jayaram, our guru, whose patience and creativity shine through in every Bharatanatyam class. She has truly nurtured both of our daughters’ interest and love for dance, while building strong technique and confidence. It is heartwarming to see their enthusiasm grow and their skills flourish under such thoughtful and dedicated guidance."
+            },
+            {
+              "key": "about.reviews.r7.name",
+              "label": "Review 7 — name",
+              "type": "text",
+              "default": ""
+            },
+            {
+              "key": "about.reviews.r7.role",
+              "label": "Review 7 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r7.rating",
+              "label": "Review 7 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r7.text",
+              "label": "Review 7 — text",
+              "type": "textarea",
+              "default": ""
+            },
+            {
+              "key": "about.reviews.r8.name",
+              "label": "Review 8 — name",
+              "type": "text",
+              "default": ""
+            },
+            {
+              "key": "about.reviews.r8.role",
+              "label": "Review 8 — role",
+              "type": "text",
+              "default": "Parent"
+            },
+            {
+              "key": "about.reviews.r8.rating",
+              "label": "Review 8 — stars (1–5)",
+              "type": "text",
+              "default": "5"
+            },
+            {
+              "key": "about.reviews.r8.text",
+              "label": "Review 8 — text",
+              "type": "textarea",
+              "default": ""
+            }
+          ]
+        }
+      ]
     },
     {
       "path": "/classes",

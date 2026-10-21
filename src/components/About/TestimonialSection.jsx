@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
@@ -13,58 +14,17 @@ export default function TestimonialsSection() {
   const [cardHeight, setCardHeight] = useState("auto");
   const cardRef = useRef(null);
 
-  const testimonials = [
-    {
-      name: "Swapna",
-      role: "Parent",
-      rating: 4,
-      comment:
-        "Sreenandini is a wonderful teacher who has truly sparked my daughter's (Pradhita's) interest in dance. Thanks to her encouragement and support, Pradhita has transformed from a shy child into a more confident and social individual.",
-      avatar: "S",
-    },
-    {
-      name: "Vijayalakshmi",
-      role: "Parent",
-      rating: 5,
-      comment: `Bharatanatyam being a classical art form derives its beauty from precision, discipline, and a unique style. Unlike many commercial dance classes that focus on quickly completing lessons, this institution is deeply committed to teaching proper posture, mudras, and foundational techniques. Students are promoted only after achieving the required level of proficiency, with no compromises in quality.
-        Respect for the art form is emphasized, ensuring students understand its cultural significance. 
-
-        The dedication and effort invested in perfecting each recital make every performance exceptional.
-
-        My child has been learning here for four years, and it has been a joy to witness her growth. I am proud to be part of an institution where the true values of Bharatanatyam are preserved.`,
-      avatar: "V",
-    },
-    {
-      name: "Eswari N",
-      role: "Parent",
-      rating: 5,
-      comment:
-        "We joined Ms. Nandini's Sree Narthana Natyalaya a few years back and are grateful for that decision. She is a disciplined and dedicated teacher and a role model. Both my daughters have gained confidence and learned to dance with grace and dignity. We look forward to the institution's excellence spreading to many more students.",
-      avatar: "E",
-    },
-    {
-      name: "Thankam Jose",
-      role: "Parent",
-      rating: 5,
-      comment:
-        "My two daughters, aged 8 and 5, attend Bharatanatyam classes here. Ms. Nandini is patient, kind, and makes learning enjoyable. We've seen great improvement in their confidence and interest in dance. Highly recommended.",
-      avatar: "T",
-    },
-    {
-      name: "Pavithra",
-      role: "Parent",
-      rating: 5,
-      comment: "Wonderful teaching and a very positive environment.",
-      avatar: "P",
-    },
-    {
-      name: "Kalyani Manikandan",
-      role: "Parent",
-      rating: 5,
-      comment: "As a parent, I am incredibly grateful for SreeNandini Jayaram, our guru, whose patience and creativity shine through in every Bharatanatyam class. She has truly nurtured both of our daughters’ interest and love for dance, while building strong technique and confidence. It is heartwarming to see their enthusiasm grow and their skills flourish under such thoughtful and dedicated guidance.",
-      avatar: "P",
-    },
-  ];
+  const { t } = useContent();
+  // Reviews come from admin → Website; empty slots are skipped
+  const testimonials = Array.from({ length: 8 }, (_, i) => i + 1)
+    .map((i) => ({
+      name: t(`about.reviews.r${i}.name`),
+      role: t(`about.reviews.r${i}.role`),
+      rating: Math.max(0, Math.min(5, parseInt(t(`about.reviews.r${i}.rating`), 10) || 5)),
+      comment: t(`about.reviews.r${i}.text`),
+    }))
+    .filter((r) => r.comment.trim() && r.name.trim())
+    .map((r) => ({ ...r, avatar: r.name.trim().charAt(0).toUpperCase() }));
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -131,13 +91,13 @@ export default function TestimonialsSection() {
         >
           <AnimatedDivider />
           <MotionTypography component="h2" sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "2rem", sm: "2.6rem", md: "3rem" }, color: "#FFF5F2", fontWeight: 800, letterSpacing: "0.03em", textShadow: "0 4px 20px rgba(124,27,50,0.5), 0 0 40px rgba(124,27,50,0.3)", mb: 1.5, mt: 1 }}>
-            Rasa Reflection
+            {t('about.reviews.title')}
           </MotionTypography>
           <Typography sx={{ fontFamily: "'Berkshire Swash', cursive", fontSize: { xs: "0.95rem", md: "1.1rem" }, color: "#E94B6E", letterSpacing: "0.05em", mb: 1.5 }}>
-            Testimonials
+            {t('about.reviews.eyebrow')}
           </Typography>
           <Typography sx={{ fontFamily: "'Roboto', sans-serif", fontSize: { xs: "0.95rem", md: "1.05rem" }, color: "rgba(255,245,242,0.75)", maxWidth: "640px", mx: "auto", lineHeight: 1.65 }}>
-            Hear from our community of dancers and their families
+            {t('about.reviews.subtitle')}
           </Typography>
         </MotionBox>
 

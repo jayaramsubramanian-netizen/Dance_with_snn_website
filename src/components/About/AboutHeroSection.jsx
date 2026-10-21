@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
 
 export default function AboutHeroSection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -70,7 +72,7 @@ export default function AboutHeroSection() {
             // `,
           }}
         >
-          Our Story
+          {t('about.hero.title')}
         </MotionTypography>
 
         {/* ================= SUBTITLE ================= */}
@@ -93,7 +95,7 @@ export default function AboutHeroSection() {
             opacity: 0.85,
           }}
         >
-          A legacy of dedication, artistry, and cultural preservation
+          {t('about.hero.subtitle')}
         </MotionTypography>
 
         {/* Decorative Line Bottom */}
@@ -144,8 +146,8 @@ export default function AboutHeroSection() {
           <Box
             component="img"
             // src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774682832/bgImage_bndvj6.webp"
-            src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1777104977/Collage_i2lr4m.webp"
-            alt="Dance instruction"
+            src={img('about.hero.image').src}
+            alt={img('about.hero.image').alt}
             sx={{
               width: "100%",
               height: "100%",
