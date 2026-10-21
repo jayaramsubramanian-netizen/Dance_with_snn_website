@@ -1,11 +1,11 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { loadContent } from '../content/load.js';
+import { contentForPage } from '../content/core.js';
 import Contact from '../islands/Contact.jsx';
+const content = contentForPage(loadContent(), '/contact');
 ---
 <SiteLayout
-  path="/contact"
-  title="Contact Sree Narthana Natyalaya | Bharatanatyam Classes in Spring Texas"
-  description="Contact Sree Narthana Natyalaya in Spring, Texas for Bharatanatyam classes under Guru Shree Nandini. Enroll today!"
-  ogTitle="Contact Sree Narthana Natyalaya">
-  <Contact client:load />
+  path="/contact">
+  <Contact client:load content={content} />
 </SiteLayout>

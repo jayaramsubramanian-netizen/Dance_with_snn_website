@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "help": {
+    "rich": "Wrap words in **double asterisks** to highlight them in crimson. Press Enter for a new line, or twice for a new paragraph.",
+    "keywords": "Comma-separated words people might search for. Google itself ignores this tag, so also use these words in the title, description and section text."
+  },
+  "pages": [
+    {
+      "path": "*",
+      "label": "Site-wide (header & footer)",
+      "seo": false,
+      "sections": [
+        {
+          "id": "brand",
+          "label": "Logo",
+          "fields": [
+            {
+              "key": "site.logo",
+              "label": "Logo (header and footer)",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_300/v1774683040/SNN_TEXT_p4wyx2.webp",
+              "altDefault": "SreeNarthana Natyalaya"
+            }
+          ]
+        },
+        {
+          "id": "footer",
+          "label": "Footer",
+          "fields": [
+            {
+              "key": "footer.tagline",
+              "label": "Tagline",
+              "type": "textarea",
+              "default": "Dance with your heart and with every step unfolds a story of passion. Classical Bharatanatyam in Spring, Texas."
+            },
+            {
+              "key": "footer.address",
+              "label": "Address",
+              "type": "text",
+              "default": "27938 Robinson Park Dr, Spring TX 77386"
+            },
+            {
+              "key": "footer.phone",
+              "label": "Phone (as shown)",
+              "type": "text",
+              "default": "+1 (630) 750-5272"
+            },
+            {
+              "key": "footer.email",
+              "label": "Email",
+              "type": "text",
+              "default": "info@dancewithsnn.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "label": "Home",
+      "seo": {
+        "title": "Sree Narthana Natyalaya | Bharatanatyam Classes in Texas | Dance With SNN",
+        "description": "Join Sree Narthana Natyalaya for Bharatanatyam classes in Texas. Learn Indian classical dance under Guru Shree Nandini. Classes for beginners, kids, and advanced students.",
+        "ogTitle": "Sree Narthana Natyalaya | Bharatanatyam Classes in Texas",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": [
+        {
+          "id": "hero",
+          "label": "Hero banner",
+          "fields": [
+            {
+              "key": "home.hero.image",
+              "label": "Background photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683883/StudentPic4_yi3k2b.webp",
+              "altDefault": "Bharatanatyam Performance"
+            },
+            {
+              "key": "home.hero.title",
+              "label": "Headline",
+              "type": "text",
+              "default": "Nurturing Bharatanatyam Excellence"
+            },
+            {
+              "key": "home.hero.subtitle",
+              "label": "Sub-heading",
+              "type": "rich",
+              "default": "Where tradition meets artistry and discipline transforms into grace.\nExperience the timeless elegance of our classical Indian dance."
+            },
+            {
+              "key": "home.hero.button",
+              "label": "Button label",
+              "type": "text",
+              "default": "Enroll Now"
+            }
+          ]
+        },
+        {
+          "id": "legacy",
+          "label": "A Legacy of Grace",
+          "fields": [
+            {
+              "key": "home.legacy.image",
+              "label": "Background photo",
+              "type": "image",
+              "default": "https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+              "altDefault": "Indian dance mudra hands"
+            },
+            {
+              "key": "home.legacy.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "A Legacy of Grace"
+            },
+            {
+              "key": "home.legacy.body",
+              "label": "Text",
+              "type": "rich",
+              "default": "Established in **2021 in Spring, Texas**, SreeNarthana Natyalaya is a center dedicated to excellence in Bharatanatyam, blending tradition, discipline, and artistic refinement.\n\nUnder the distinguished guidance of **Smt. Sreenandini Jayaram**, we nurture more than dancers — we nurture artists grounded in technique, expressive depth, and cultural heritage. Our training instills discipline, confidence, and devotion, shaping performers who carry the timeless spirit of Bharatanatyam with poise and authenticity."
+            },
+            {
+              "key": "home.legacy.button",
+              "label": "Button label",
+              "type": "text",
+              "default": "Explore Our Story"
+            }
+          ]
+        },
+        {
+          "id": "essence",
+          "label": "Our Essence",
+          "fields": [
+            {
+              "key": "home.essence.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1200/v1774703089/essence_kzpsjr.jpg",
+              "altDefault": "Bharatanatyam"
+            },
+            {
+              "key": "home.essence.eyebrow",
+              "label": "Small heading",
+              "type": "text",
+              "default": "Nātya Sāra"
+            },
+            {
+              "key": "home.essence.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Our Essence"
+            },
+            {
+              "key": "home.essence.intro",
+              "label": "Introduction",
+              "type": "rich",
+              "default": "Our philosophy is built upon four foundational pillars where Tradition, Expression, and Grace Unite"
+            },
+            {
+              "key": "home.essence.p1.title",
+              "label": "Pillar 1 — title",
+              "type": "text",
+              "default": "Passion & Dedication"
+            },
+            {
+              "key": "home.essence.p1.text",
+              "label": "Pillar 1 — text",
+              "type": "textarea",
+              "default": "Cultivating a deep love for the art form through disciplined practice"
+            },
+            {
+              "key": "home.essence.p2.title",
+              "label": "Pillar 2 — title",
+              "type": "text",
+              "default": "Excellence"
+            },
+            {
+              "key": "home.essence.p2.text",
+              "label": "Pillar 2 — text",
+              "type": "textarea",
+              "default": "Striving for mastery in technique, expression, and performance"
+            },
+            {
+              "key": "home.essence.p3.title",
+              "label": "Pillar 3 — title",
+              "type": "text",
+              "default": "Community"
+            },
+            {
+              "key": "home.essence.p3.text",
+              "label": "Pillar 3 — text",
+              "type": "textarea",
+              "default": "Building a supportive family of artists and art lovers"
+            },
+            {
+              "key": "home.essence.p4.title",
+              "label": "Pillar 4 — title",
+              "type": "text",
+              "default": "Tradition & Innovation"
+            },
+            {
+              "key": "home.essence.p4.text",
+              "label": "Pillar 4 — text",
+              "type": "textarea",
+              "default": "Honoring classical roots while embracing contemporary expression"
+            }
+          ]
+        },
+        {
+          "id": "gesture",
+          "label": "Every Gesture Speaks a Tale",
+          "fields": [
+            {
+              "key": "home.gesture.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1774682332/DSC_1096_go4ujt.webp",
+              "altDefault": "Classical dance mudra"
+            },
+            {
+              "key": "home.gesture.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Every Gesture Speaks a Tale"
+            },
+            {
+              "key": "home.gesture.body",
+              "label": "Text",
+              "type": "rich",
+              "default": "In every mudra, every rhythm, and every expression, a story unfolds — connecting performer and audience through the universal language of movement and emotion."
+            }
+          ]
+        },
+        {
+          "id": "journey",
+          "label": "Begin Your Journey",
+          "fields": [
+            {
+              "key": "home.journey.image",
+              "label": "Photo",
+              "type": "image",
+              "default": "https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_800/v1775381602/StudentPic6_y1rpwz.jpg",
+              "altDefault": "Classical dance"
+            },
+            {
+              "key": "home.journey.title",
+              "label": "Heading",
+              "type": "text",
+              "default": "Begin Your Journey with Us"
+            },
+            {
+              "key": "home.journey.body",
+              "label": "Text",
+              "type": "rich",
+              "default": "Step into a world of rhythm, expression, and grace. Join our vibrant community and discover the transformative power of Bharatanatyam in an environment dedicated to excellence and tradition.\n\nWhether beginning your first steps or refining advanced technique, your artistic journey begins here."
+            },
+            {
+              "key": "home.journey.button",
+              "label": "Button label",
+              "type": "text",
+              "default": "Register Today"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/about",
+      "label": "About",
+      "seo": {
+        "title": "About Sree Narthana Natyalaya | Bharatanatyam School in Texas",
+        "description": "Learn about Sree Narthana Natyalaya, a Bharatanatyam dance school in Spring, Texas led by Guru Shree Nandini.",
+        "ogTitle": "About Sree Narthana Natyalaya | Bharatanatyam School Texas",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": []
+    },
+    {
+      "path": "/classes",
+      "label": "Classes",
+      "seo": {
+        "title": "Bharatanatyam Classes in Spring Texas | Sree Narthana Natyalaya",
+        "description": "Join Bharatanatyam classes in Spring, Texas at Sree Narthana Natyalaya under Guru Shree Nandini. Training for beginners and advanced students.",
+        "ogTitle": "Bharatanatyam Classes in Spring Texas | Sree Narthana Natyalaya",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": []
+    },
+    {
+      "path": "/events",
+      "label": "Gallery & Events",
+      "seo": {
+        "title": "Events & Performances | Sree Narthana Natyalaya | Bharatanatyam Events Texas",
+        "description": "Explore Bharatanatyam performances and cultural events by Sree Narthana Natyalaya in Texas. Stay updated with recitals and showcases.",
+        "ogTitle": "Bharatanatyam Events | Sree Narthana Natyalaya Texas",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": []
+    },
+    {
+      "path": "/portal",
+      "label": "Portal",
+      "seo": {
+        "title": "Student Portal | Sree Narthana Natyalaya",
+        "description": "Access the student portal for Sree Narthana Natyalaya dance classes.",
+        "ogTitle": "Student Portal | Sree Narthana Natyalaya",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": []
+    },
+    {
+      "path": "/contact",
+      "label": "Contact",
+      "seo": {
+        "title": "Contact Sree Narthana Natyalaya | Bharatanatyam Classes in Spring Texas",
+        "description": "Contact Sree Narthana Natyalaya in Spring, Texas for Bharatanatyam classes under Guru Shree Nandini. Enroll today!",
+        "ogTitle": "Contact Sree Narthana Natyalaya",
+        "keywords": "bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas",
+        "image": ""
+      },
+      "sections": []
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { loadContent } from '../content/load.js';
+import { contentForPage } from '../content/core.js';
 import Portal from '../islands/Portal.jsx';
+const content = contentForPage(loadContent(), '/portal');
 ---
 <SiteLayout
-  path="/portal"
-  title="Student Portal | Sree Narthana Natyalaya"
-  description="Access the student portal for Sree Narthana Natyalaya dance classes."
-  ogTitle="Student Portal | Sree Narthana Natyalaya">
-  <Portal client:load />
+  path="/portal">
+  <Portal client:load content={content} />
 </SiteLayout>

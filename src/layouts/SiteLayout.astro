@@ -4,21 +4,34 @@
 // canonicals, Open Graph and structured data) so search rankings carry over.
 import '../App.css';
 import Navigation from '../islands/Navigation.jsx';
+import { loadContent } from '../content/load.js';
+import { seoFor, contentForPage } from '../content/core.js';
 import PreloaderOnce from '../islands/PreloaderOnce.jsx';
 
 interface Props {
-  title: string;
-  description: string;
-  ogTitle: string;
-  path: string;            // '/', '/about', …
+  path: string;            // '/', '/about', … — selects this page's SEO settings
   heroPreload?: string;    // LCP image to preload (home only)
+  extraKeywords?: string;  // e.g. keywords typed on each published event
+  jsonLd?: object[];       // extra structured data (events)
 }
-const { title, description, ogTitle, path, heroPreload } = Astro.props;
+const { path, heroPreload, extraKeywords = '', jsonLd = [] } = Astro.props;
+// Title, description, keywords and share image come from the admin "Website"
+// editor (defaults = what the site had before).
+const content = loadContent();
+const seo = seoFor(content, path);
+if (extraKeywords) {
+  const seen = new Set(seo.keywords.split(',').map((w) => w.trim().toLowerCase()));
+  const add = extraKeywords.split(',').map((w) => w.trim()).filter((w) => w && !seen.has(w.toLowerCase()) && seen.add(w.toLowerCase()));
+  seo.keywords = [seo.keywords, ...add].filter(Boolean).join(', ');
+}
+// Pictures uploaded through the portal live on this site (/site-media/…);
+// link previews (Facebook, WhatsApp…) need the full address.
+if (seo.image.startsWith('/')) seo.image = `https://dancewithsnn.com${seo.image}`;
+const { title, description, ogTitle } = seo;
 const canonical = path === '/' ? 'https://dancewithsnn.com/' : `https://dancewithsnn.com${path}`;
 const ogUrl = canonical;
+const navContent = contentForPage(content, '/__site');   // logo only
 
-// Lets the shared Navigation component know which page it is on while
-// Astro renders it at build time (see src/shims/react-router-dom.jsx).
 globalThis.__SNN_PATH__ = path;
 ---
 <!doctype html>
@@ -30,27 +43,27 @@ globalThis.__SNN_PATH__ = path;
   <link rel="shortcut icon" href="/Logo.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/Logo.png" />
   <link rel="manifest" href="/manifest.json" />
-  {heroPreload && <link rel="preload" as="image" type="image/webp" href={heroPreload} fetchpriority="high" />}
+  {heroPreload && <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />}
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="bharatanatyam classes texas, indian classical dance texas, dance classes near me, bharatanatyam teacher texas, shree nandini dance, sree narthana natyalaya, indian dance school texas, bharatanatyam for kids, classical dance training usa, dance academy texas" />
+  {seo.keywords && <meta name="keywords" content={seo.keywords} />}
   <meta name="author" content="Sree Narthana Natyalaya" />
   <meta property="og:site_name" content="Sree Narthana Natyalaya" />
   <meta property="og:title" content={ogTitle} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="https://dancewithsnn.com/Logo.png" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
+  <meta property="og:image" content={seo.image} />
+  {seo.image.endsWith('/Logo.png') && <><meta property="og:image:width" content="512" /><meta property="og:image:height" content="512" /></>}
   <meta property="og:url" content={ogUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sree Narthana Natyalaya | Bharatanatyam Classes in Texas" />
   <meta name="twitter:description" content="Bharatanatyam classes in Texas by Guru Shree Nandini." />
-  <meta name="twitter:image" content="https://dancewithsnn.com/Logo.png" />
+  <meta name="twitter:image" content={seo.image} />
   <link rel="canonical" href={canonical} />
+  {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,7 +93,7 @@ globalThis.__SNN_PATH__ = path;
 </head>
 <body>
   <PreloaderOnce client:load />
-  <Navigation client:load />
+  <Navigation client:load content={navContent} />
   <main>
     <slot />
   </main>

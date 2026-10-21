@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionImg = motion.create("img");
@@ -31,6 +32,7 @@ function useNavbarHeight() {
 }
 
 export default function HeroSection({ onScrollDown }) {
+  const { t, img } = useContent();
   const navH = useNavbarHeight();
 
   return (
@@ -67,8 +69,8 @@ export default function HeroSection({ onScrollDown }) {
           }}
         />
         <MotionImg
-          src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_1400/v1774683883/StudentPic4_yi3k2b.webp"
-          alt="Bharatanatyam Performance"
+          src={img('home.hero.image').src}
+          alt={img('home.hero.image').alt}
           fetchPriority="high"
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
@@ -172,7 +174,7 @@ export default function HeroSection({ onScrollDown }) {
             lineHeight: 1.15,
           }}
         >
-          Nurturing Bharatanatyam Excellence
+          {t('home.hero.title')}
         </MotionTypography>
 
         <MotionTypography
@@ -193,9 +195,7 @@ export default function HeroSection({ onScrollDown }) {
             textShadow: "0 2px 10px rgba(0,0,0,0.7)",
           }}
         >
-          Where tradition meets artistry and discipline transforms into grace.
-          <br />
-          Experience the timeless elegance of our classical Indian dance.
+          <Rich k="home.hero.subtitle" />
         </MotionTypography>
 
         {/* CTA button */}
@@ -248,7 +248,7 @@ export default function HeroSection({ onScrollDown }) {
                 },
               }}
           >
-            Enroll Now
+            {t('home.hero.button')}
             <svg
                 width="20"
                 height="20"
