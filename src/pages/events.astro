@@ -2,8 +2,10 @@
 import fs from 'node:fs';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Events from '../islands/Events.jsx';
+import { loadContent } from '../content/load.js';
+import { contentForPage } from '../content/core.js';
 
-// Events published from the portal admin, copied in by scripts/fetch-events.mjs
+// Events published from the portal admin, copied in by scripts/fetch-site-data.mjs
 // before the build. Missing file (offline build) → page shows as before.
 let feed = { generatedAt: null, events: [] };
 try { feed = JSON.parse(fs.readFileSync('src/data/events.json', 'utf8')); } catch {}
@@ -16,11 +18,32 @@ const upcoming = feed.events.filter((e) => endOf(e) >= now)
   .sort((a, b) => +new Date(a.eventDate) - +new Date(b.eventDate));
 const past = feed.events.filter((e) => endOf(e) < now)
   .sort((a, b) => +new Date(b.eventDate) - +new Date(a.eventDate));
+const content = contentForPage(loadContent(), '/events');
+
+// Search keywords typed on each event in the portal → this page's keywords.
+const extraKeywords = feed.events.map((e) => e.keywords ?? '').filter(Boolean).join(',');
+
+// Structured data so Google can list upcoming events (title, date, place, picture).
+const SITE = 'https://dancewithsnn.com';
+const abs = (u) => (u ? (u.startsWith('/') ? SITE + u : u) : undefined);
+const jsonLd = upcoming.map((e) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: e.title,
+  startDate: e.eventDate,
+  ...(e.endDate ? { endDate: e.endDate } : {}),
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  ...(e.description ? { description: e.description } : {}),
+  ...(e.keywords ? { keywords: e.keywords } : {}),
+  image: [abs(e.posterUrl || e.coverUrl || e.photos?.[0]?.url) || `${SITE}/Logo.png`],
+  location: { '@type': 'Place', name: e.location || 'Sree Narthana Natyalaya', address: e.location || 'Texas, USA' },
+  organizer: { '@type': 'Organization', name: 'Sree Narthana Natyalaya', url: SITE },
+  ...(e.signupUrl ? { offers: { '@type': 'Offer', url: e.signupUrl, availability: 'https://schema.org/InStock' } } : {}),
+  url: `${SITE}/events`,
+}));
 ---
 <SiteLayout
-  path="/events"
-  title={"Events & Performances | Sree Narthana Natyalaya | Bharatanatyam Events Texas"}
-  description="Explore Bharatanatyam performances and cultural events by Sree Narthana Natyalaya in Texas. Stay updated with recitals and showcases."
-  ogTitle="Bharatanatyam Events | Sree Narthana Natyalaya Texas">
-  <Events client:load upcoming={upcoming} past={past} />
+  path="/events" extraKeywords={extraKeywords} jsonLd={jsonLd}>
+  <Events client:load content={content} upcoming={upcoming} past={past} />
 </SiteLayout>

@@ -2,10 +2,12 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedDivider from "../AnimatedDivider";
+import { useContent, Rich } from '../../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 
 export default function LegacySection() {
+  const { t, img } = useContent();
   return (
     <Box
       component="section"
@@ -29,8 +31,8 @@ export default function LegacySection() {
       >
         <Box
           component="img"
-          src="https://images.unsplash.com/photo-1748616850788-c8903b648907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-          alt="Indian dance mudra hands"
+          src={img('home.legacy.image').src}
+          alt={img('home.legacy.image').alt}
           loading="lazy"
           sx={{
             width: "100%",
@@ -140,7 +142,7 @@ export default function LegacySection() {
               mb: 3,
             }}
           >
-            A Legacy of Grace
+            {t('home.legacy.title')}
           </Typography>
 
           {/* PARAGRAPH */}
@@ -156,24 +158,7 @@ export default function LegacySection() {
               textShadow: "0 2px 8px rgba(0,0,0,0.6)",
             }}
           >
-            Established in{" "}
-            <span style={{ color: "#E94B6E", fontWeight: 600 }}>
-              2021 in Spring, Texas
-            </span>
-            , SreeNarthana Natyalaya is a center dedicated to excellence in
-            Bharatanatyam, blending tradition, discipline, and artistic
-            refinement.
-            <br />
-            <br />
-            Under the distinguished guidance of{" "}
-            <span style={{ color: "#E94B6E", fontWeight: 600 }}>
-              Smt. Sreenandini Jayaram
-            </span>
-            , we nurture more than dancers — we nurture artists grounded in
-            technique, expressive depth, and cultural heritage. Our training
-            instills discipline, confidence, and devotion, shaping performers
-            who carry the timeless spirit of Bharatanatyam with poise and
-            authenticity.
+            <Rich k="home.legacy.body" />
           </Typography>
 
           {/* BUTTON */}
@@ -229,7 +214,7 @@ export default function LegacySection() {
                 },
               }}
             >
-              Explore Our Story
+              {t('home.legacy.button')}
               <svg
                 width="20"
                 height="20"

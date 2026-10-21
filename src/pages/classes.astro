@@ -1,11 +1,11 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { loadContent } from '../content/load.js';
+import { contentForPage } from '../content/core.js';
 import Classes from '../islands/Classes.jsx';
+const content = contentForPage(loadContent(), '/classes');
 ---
 <SiteLayout
-  path="/classes"
-  title="Bharatanatyam Classes in Spring Texas | Sree Narthana Natyalaya"
-  description="Join Bharatanatyam classes in Spring, Texas at Sree Narthana Natyalaya under Guru Shree Nandini. Training for beginners and advanced students."
-  ogTitle="Bharatanatyam Classes in Spring Texas | Sree Narthana Natyalaya">
-  <Classes client:load />
+  path="/classes">
+  <Classes client:load content={content} />
 </SiteLayout>

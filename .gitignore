@@ -35,3 +35,5 @@ dist/
 # Downloaded at build time from the portal (scripts/fetch-events.mjs)
 src/data/events.json
 public/event-media/
+src/data/site-content.json
+public/site-media/

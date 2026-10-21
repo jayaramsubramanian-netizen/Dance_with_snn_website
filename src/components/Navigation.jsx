@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useContent } from '../content/ContentContext.jsx';
 
 const MotionBox = motion.create(Box);
 const MotionNavItem = motion.create(Box);
 
 export function Navigation() {
+  const { img } = useContent();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -96,8 +98,8 @@ export function Navigation() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dtovj9rds/image/upload/f_auto,q_auto,w_300/v1774683040/SNN_TEXT_p4wyx2.webp"
-              alt="SreeNarthana Natyalaya"
+              src={img("site.logo").src}
+              alt={img("site.logo").alt}
               sx={{
                 height: { xs: 60, sm: 50, md: 90 },
                 width: "auto",
